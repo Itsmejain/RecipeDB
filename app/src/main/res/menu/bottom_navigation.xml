@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="HOME"/>
+
+    <item
+        android:id="@+id/nav_visual_search"
+        android:icon="@drawable/ic_baseline_remove_red_eye_24"
+        android:title="VISUAL SEARCH"/>
+    <item
+        android:id="@+id/nav_search"
+        android:icon="@drawable/ic_baseline_search_24"
+        android:title="SEARCH"/>
+
+    <item
+        android:id="@+id/nav_statistics"
+        android:icon="@drawable/ic_baseline_analytics_24"
+        android:title="STATISTICS"/>
+
+</menu>
