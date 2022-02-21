@@ -10,19 +10,17 @@
 
     <TextView
         android:id="@+id/textView_contactUS"
-        android:layout_width="400dp"
-        android:layout_height="105dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="276dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="56dp"
         android:background="#D91F7872"
         android:gravity="center"
-        android:paddingTop="20dp"
-        android:paddingBottom="20dp"
         android:text="CONTACT US "
         android:textColor="#000000"
-        android:textSize="40dp"
+        android:textSize="25dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintHorizontal_bias="0.107"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -30,89 +28,88 @@
         android:id="@+id/textView_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="4dp"
         android:text="Dr. Ganesh Bagler"
         android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.177"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_contactUS" />
 
     <TextView
-        android:id="@+id/textView_centerCB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Center for Computational Biology"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_name" />
-
-    <TextView
         android:id="@+id/textView_address"
-        android:layout_width="377dp"
-        android:layout_height="115dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="320dp"
+        android:layout_height="85dp"
         android:gravity="center"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:text="Indraprastha Institute of Information Technology Delhi (IIIT Delhi), R &amp; D Block,Okhla Phase III, Near Govindpuri Metro Station, New Delhi, India 110020."
         android:textColor="#000000"
-        android:textSize="20sp"
+        android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.617"
+        app:layout_constraintHorizontal_bias="0.085"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_centerCB" />
 
     <TextView
-        android:id="@+id/textView_mail"
+        android:id="@+id/textView_centerCB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Email: bagler+RecipeDB@iiitd.ac.in"
+        android:paddingTop="2dp"
+        android:text="Center for Computational Biology"
         android:textColor="#000000"
-        android:textSize="20sp"
+        android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintHorizontal_bias="0.163"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_address" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_name" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="29dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toStartOf="@+id/textView_mobile"
+        app:layout_constraintHorizontal_bias="0.973"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_mail"
+        app:srcCompat="@drawable/ic_contact_us" />
 
     <TextView
         android:id="@+id/textView_mobile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:text="Tel: +91-11-26907-443 (Work)"
         android:textColor="#000000"
-        android:textSize="20sp"
+        android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.214"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_mail" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="39dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toStartOf="@+id/textView_mobile"
-        app:layout_constraintHorizontal_bias="0.593"
+    <TextView
+        android:id="@+id/textView_mail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email: bagler+RecipeDB@iiitd.ac.in"
+        android:textColor="#000000"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.142"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_mail"
-        app:srcCompat="@drawable/ic_contact_us" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_address" />
 
     <com.google.android.gms.maps.MapView
         android:id="@+id/mapView"
-        android:layout_width="389dp"
-        android:layout_height="306dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="338dp"
+        android:layout_height="241dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintHorizontal_bias="0.959"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_mobile" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.558" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
