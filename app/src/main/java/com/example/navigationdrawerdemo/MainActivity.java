@@ -8,6 +8,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -34,8 +35,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
 
-//        getSupportFragmentManager().beginTransaction().
-//                replace(R.id.fragment_container,new HomeFragment()).commit();
 
         ActionBarDrawerToggle toggle =
                 new ActionBarDrawerToggle(this, drawer, toolbar,
@@ -50,7 +49,46 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     .commit();
             navigationView.setCheckedItem(R.id.nav_home);
         }
+
+
     }
+
+    @Override
+    protected void onStart() {
+        startbearertokengeneratorservice();
+        super.onStart();
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        stopbearertokengeneratorservice();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+
+
+    private void startbearertokengeneratorservice(){
+        startService(new Intent(this,CredentialBackgroundService.class));
+    }
+    private void stopbearertokengeneratorservice(){
+        stopService(new Intent(this,CredentialBackgroundService.class));
+    }
+
+
     private NavigationBarView.OnItemSelectedListener navListner =
             new NavigationBarView.OnItemSelectedListener() {
                 @Override
@@ -127,4 +165,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         drawer.closeDrawer(GravityCompat.START);        return true;
     }
+
+
+
 }
