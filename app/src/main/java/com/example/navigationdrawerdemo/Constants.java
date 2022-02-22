@@ -13,5 +13,6 @@ public class Constants {
     public static String BEARER_TOKEN_GRANT_TYPE= "password";
     public static String RETROFIT_BASE_URL= "https://cosylab.iiitd.edu.in/";
     public static final long BEARER_TOKEN_REFRESH_TIME = 250000;
+    public static boolean RECIPE_OF_THE_DAY_IMAGE_DOWNLOADED = false;
 
 }

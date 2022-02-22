@@ -1,10 +1,14 @@
 package com.example.navigationdrawerdemo;
 
-import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
+import android.os.Parcelable;
 import android.util.Log;
 import android.widget.TextView;
 
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+
+import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
@@ -23,7 +27,24 @@ public class APIHandler {
     private  Retrofit retrofit;
     private  OkHttpClient okHttpClient;
     private String receipe_info;
+    private JsonObject recipeOfTheDay;
+    private Context context;
+    Response<JsonObject> recipeOfTheDay_response;
     APIHandler(){
+         httpLoggingInterceptor = new HttpLoggingInterceptor();
+         httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+         okHttpClient = new OkHttpClient.Builder().
+                addInterceptor(httpLoggingInterceptor)
+                .build();
+         retrofit = new Retrofit.Builder()
+                .baseUrl(Constants.RETROFIT_BASE_URL) // Slash at the end is compulsory
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(okHttpClient)
+                .build();
+        jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
+    }
+    APIHandler(Context context){
+        this.context = context;
          httpLoggingInterceptor = new HttpLoggingInterceptor();
          httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
          okHttpClient = new OkHttpClient.Builder().
@@ -84,6 +105,56 @@ public class APIHandler {
             }
         });
 
+    }
+
+    public JsonObject recipeOfTheDay(){
+
+        Call<JsonObject> call = jsonPlaceHolderApi.getRecipeOfTheDay(Constants.BEARER_TOKEN);
+        call.enqueue(new Callback<JsonObject>() {
+            @Override
+            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                if(!response.isSuccessful()){
+                    Log.d(Constants.TAG, "recipeOfTheDay -> onResponse: UNSUCCESSFUL RESPONSE");
+//                    textView.setText("code : "+response.code());
+                    return;
+                }
+                recipeOfTheDay = response.body();
+               // Object imgurl = recipeOfTheDay.get("img_url");
+//                Log.d(Constants.TAG, "onResponse: IMAGE URL "+imgurl);
+               // recipeOfTheDay_response = response;
+                Constants.RECIPE_OF_THE_DAY_IMAGE_DOWNLOADED = true;
+                Log.d(Constants.TAG, "response.code: "+response.code());
+                Log.d(Constants.TAG, "response.toString: "+response.toString());
+                Log.d(Constants.TAG, "response.body: "+response.body());
+                Log.d(Constants.TAG, "response.message: "+response.message());
+                Log.d(Constants.TAG, "response.headers: "+response.headers());
+                Log.d(Constants.TAG, "response.raw: "+response.raw());
+
+                Gson gson = new Gson();
+                RecipeDetails recipeDetails = gson.fromJson(recipeOfTheDay,RecipeDetails.class);
+
+                Intent intent = new Intent("com.example.navigationdrawerdemo");
+                intent.putExtra("RECIPEOFTHEDAY",recipeDetails);
+                LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
+//                intent.putExtra()
+//                Log.d(Constants.TAG, "onResponse: "+recipeDetails);
+
+//                intent.putExtra("JSON_BODY",);
+//                int newsnum = updateNewsNum();
+//                intent.putExtra("NEWS_NUM",newsnum);
+//            LocalBroadcastManager manager = LocalBroadcastManager.getInstance(get)
+//            manager.sendBr
+//                LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
+
+            }
+
+            @Override
+            public void onFailure(Call<JsonObject> call, Throwable t) {
+
+            }
+        });
+//        return recipeOfTheDay_response;
+        return recipeOfTheDay;
     }
 
     public String getRecipeInfo(int recipeId, TextView textView_response){
