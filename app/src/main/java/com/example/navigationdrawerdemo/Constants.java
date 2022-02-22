@@ -5,6 +5,7 @@ public class Constants {
     public static String CCB_WEBSITE_LINK = "https://ccb.iiitd.ac.in/";
     public static String TAG = "RDB::";
     public static String BEARER_TOKEN = "token will be updated here with the http call";
+    public static boolean BEARER_TOKEN_GENERATED_FLAG = false;
     public static String BEARER_TOKEN_USERNAME = "manas";
     public static String BEARER_TOKEN_PASSWORD = "manas_cosylab";
     public static String BEARER_TOKEN_SCOPE = "openid";

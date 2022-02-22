@@ -52,6 +52,10 @@ public class CredentialBackgroundService extends Service {
        // Toast.makeText(this, "SERVICE STARTED", Toast.LENGTH_SHORT).show();
         isServiceRunning = true;
         Log.d(Constants.TAG, "CredentialBackgroundService onStartCommand: SERVICE STARTED");
+
+        //THIS THREAD IS FOR BEARER TOKEN GENERATION
+        //WHICH KEEPS RUNNING IN BACKGROUND
+        //AND KEEPS UPDATING THE BEARER TOKEN BEFORE IT EXPIRES
         mHandler = new Handler();
         mHandler.post(runnableService);
         return START_STICKY;

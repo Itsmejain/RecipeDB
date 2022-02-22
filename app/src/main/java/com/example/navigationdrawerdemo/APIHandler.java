@@ -68,6 +68,8 @@ public class APIHandler {
                 String accessToken = accessTokenJsonElement.getAsString();
                 bearerToken = "Bearer "+accessToken;
                 Constants.BEARER_TOKEN = bearerToken;
+                Constants.BEARER_TOKEN_GENERATED_FLAG = true;
+
                 Log.d(Constants.TAG, "onResponse: bearerToken  "+bearerToken);
                 Log.d(Constants.TAG, "Constants.BEARER_TOKEN :: "+Constants.BEARER_TOKEN);
                 return ;
@@ -84,6 +86,81 @@ public class APIHandler {
 
     }
 
+    public String getRecipeInfo(int recipeId, TextView textView_response){
+        receipe_info = "";
+        //String receipe_info_returnval;
+//        Post post = new Post(231,"NeW Title","New Text");
+        Call<JsonObject> call = jsonPlaceHolderApi.getRecipeInfo(recipeId,bearerToken);
+//        Call<Post> call = jsonPlaceHolderApi.createPost(post);
 
+        call.enqueue(new Callback<JsonObject>() {
+            @Override
+            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                if(!response.isSuccessful()){
+//                    textView.setText("code : "+response.code());
+                    return;
+                }
+                JsonObject posrResponse = response.body();
+                Log.d("jain", "response.code: "+response.code());
+                Log.d("jain", "response.toString: "+response.toString());
+                Log.d("jain", "response.body: "+response.body());
+                Log.d("jain", "response.message: "+response.message());
+                Log.d("jain", "response.headers: "+response.headers());
+                Log.d("jain", "response.raw: "+response.raw());
+                String content = "Code:  "+response.code()+"\n";
+//                String receipe_info ="";
+
+                //ITERATING OVER JSON OBJ
+//                Iterator<String> keys = posrResponse.keySet().iterator();
+//                while(keys.hasNext()) {
+//                    String key = keys.next();
+//                    JsonElement jsonElement = posrResponse.get(key);
+//                    if(jsonElement!=null){
+//                    Log.d("jain", key + " : " + jsonElement.getAsString());
+//                    String keyval = key +" : "+jsonElement.getAsString()+"\n";
+//                    receipe_info += keyval;
+//                    }//ek value null a rhi thi isiliye faya
+//
+//                }
+
+                for (String keyStr : posrResponse.keySet()) {
+                    Object keyvalue = posrResponse.get(keyStr);
+
+                    //Print key and value
+                    Log.d("jain", keyStr + " : " + keyvalue);
+                    String keyval = keyStr +" : "+keyvalue+"\n";
+                    receipe_info += keyval;
+                    //for nested objects iteration if required
+                    //if (keyvalue instanceof JSONObject)
+                    //    printJsonObject((JSONObject)keyvalue);
+                }
+
+//                assert posrResponse != null;
+
+                // String accessToken = posrResponse.get("access_token").toString();
+                //getAsString("access_token");
+                // content+="ACCESS TOKEN :: "+accessToken;
+//                content += "ID:"+posrResponse.getId()+"\n";
+//                content+="User Id :"+posrResponse.getUserId()+"\n";
+//                content+= "Title : "+posrResponse.getTitle()+"\n";
+//                content+="Text : "+posrResponse.getText()+"\n \n ";
+
+                textView_response.setText(receipe_info);
+               // receipe_info_returnval=receipe_info;
+
+//                Intent intent = new Intent(this,RecipeInfo.class);
+//                intent.putExtra("RECIPE_INFO_BY_ID",receipe_info);
+//                startActivity(intent);
+            }
+
+            @Override
+            public void onFailure(Call<JsonObject> call, Throwable t) {
+//                textView.setText(t.getMessage());
+                textView_response.setText("INVALID ID");
+            }
+        });
+
+return receipe_info;
+    }
 
 }
