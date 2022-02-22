@@ -35,7 +35,7 @@
                 android:layout_width="400dp"
                 android:layout_height="200dp"
                 android:layout_marginStart="28dp"
-                app:srcCompat="@drawable/default_recipe_image"
+                app:srcCompat="@drawable/recipe_image"
                 tools:srcCompat="@drawable/recipe_image" />
 
             <TextView

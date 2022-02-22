@@ -29,7 +29,7 @@
         app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_recipe_of_the_day_headline"
-        app:srcCompat="@drawable/default_recipe_image"
+        app:srcCompat="@drawable/recipe_image"
         tools:srcCompat="@drawable/recipe_image" />
 
     <TextView
