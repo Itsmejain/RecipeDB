@@ -7,7 +7,10 @@ public class Constants {
     public static String BEARER_TOKEN = "token will be updated here with the http call";
     public static String BEARER_TOKEN_USERNAME = "manas";
     public static String BEARER_TOKEN_PASSWORD = "manas_cosylab";
-    public static String BEARER_TOKEN_scope = "openid";
+    public static String BEARER_TOKEN_SCOPE = "openid";
     public static String BEARER_TOKEN_CLIENT_ID= "app-ims";
     public static String BEARER_TOKEN_GRANT_TYPE= "password";
+    public static String RETROFIT_BASE_URL= "https://cosylab.iiitd.edu.in/";
+    public static final long BEARER_TOKEN_REFRESH_TIME = 250000;
+
 }
