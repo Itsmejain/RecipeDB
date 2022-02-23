@@ -1,7 +1,10 @@
 package com.example.navigationdrawerdemo;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Parcelable;
 import android.util.Log;
 import android.widget.TextView;
@@ -57,6 +60,14 @@ public class APIHandler {
                 .build();
         jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
     }
+    public  boolean checkInternetConnection(){
+        ConnectivityManager connMng = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connMng.getActiveNetworkInfo();
+        if (networkInfo != null && networkInfo.isAvailable() && networkInfo.isConnected()) {
+            return true;
+        }
+        return false;
+    }
 
     public String getBearerToken() {
         return bearerToken;
@@ -107,8 +118,11 @@ public class APIHandler {
 
     }
 
-    public JsonObject recipeOfTheDay(){
-
+    public JsonObject recipeOfTheDay(LoadingDialogHandler loadingDialogHandler){
+        if(!checkInternetConnection()) {
+            loadingDialogHandler.stopAlertDialog();
+            return null;
+        }
         Call<JsonObject> call = jsonPlaceHolderApi.getRecipeOfTheDay(Constants.BEARER_TOKEN);
         call.enqueue(new Callback<JsonObject>() {
             @Override
@@ -136,6 +150,9 @@ public class APIHandler {
                 Intent intent = new Intent("com.example.navigationdrawerdemo");
                 intent.putExtra("RECIPEOFTHEDAY",recipeDetails);
                 LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
+//                pDialog.hide();
+                loadingDialogHandler.stopAlertDialog();
+//                pDialog.h
 //                intent.putExtra()
 //                Log.d(Constants.TAG, "onResponse: "+recipeDetails);
 
@@ -150,7 +167,8 @@ public class APIHandler {
 
             @Override
             public void onFailure(Call<JsonObject> call, Throwable t) {
-
+//                pDialog.hide();
+                loadingDialogHandler.stopAlertDialog();
             }
         });
 //        return recipeOfTheDay_response;

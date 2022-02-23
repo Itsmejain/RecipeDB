@@ -1,5 +1,6 @@
 package com.example.navigationdrawerdemo;
 
+import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -19,6 +20,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
+import com.bumptech.glide.Glide;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
@@ -32,6 +34,8 @@ public class HomeFragment extends Fragment {
     private TextView recipeOfTheDay_Name_TextView;
     private JsonObject recipeOfTheDay;
     private RecipeDetails recipeDetails;
+    ProgressDialog pDialog;
+    LoadingDialogHandler loadingDialogHandler;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -39,10 +43,25 @@ public class HomeFragment extends Fragment {
         recipeOfTheDayImageView = v.findViewById(R.id.imageView_recipeofhtheday);
         recipeOfTheDay_Name_TextView = v.findViewById(R.id.textView_recipe_of_the_day_name);
 
+        if(Constants.RECIPE_OF_THE_DAY_IMAGE_DOWNLOADED){
+            Glide.with(getActivity())
+                    .load(Constants.RECIPE_OF_THE_DAY_IMAGE_URL)
+                    .placeholder(R.drawable.ic_launcher_background)
+                    .into(recipeOfTheDayImageView);
+        }
         //HANDLER TO FETCH AND DISPLAY THE RECIPE OF THE DAY
-        mHandler = new Handler();
-        mHandler.post(runnableService);
-
+//        if(!Constants.RECIPE_OF_THE_DAY_IMAGE_DOWNLOADED) {
+//         pDialog = new ProgressDialog(getContext());
+//         pDialog.setContentView(R.layout.startingloadingscreen);
+//        pDialog.setView((View) R.layout.startingloadingscreen);
+//        pDialog.setMessage("Loading...PLease wait");
+//        pDialog.show();
+          loadingDialogHandler =
+                 new LoadingDialogHandler(getActivity());
+         loadingDialogHandler.startAlertDialog();
+            mHandler = new Handler();
+            mHandler.post(runnableService);
+//        }
 
         //RECIVE LOCAL BROADCAST
         initBroadCastReceiver();
@@ -61,13 +80,13 @@ public class HomeFragment extends Fragment {
         public void run() {
             //THIS BEARER_TOKEN_GENERATED_FLAG FLAG IS UPDATED
             //WHEN THE FIRST TIME BEARER TOKEN IS GENERATED
-            if(Constants.BEARER_TOKEN_GENERATED_FLAG){
+            if(Constants.BEARER_TOKEN_GENERATED_FLAG ){
                 //call for recipe of the day
                 //fetch the image
                 //update on UI
                 Log.d(Constants.TAG, "run: BEARER TOKEN RECIEVED -> REQUESTING FOR IMAGE");
                 APIHandler apiHandler = new APIHandler(getContext());
-                recipeOfTheDay = apiHandler.recipeOfTheDay();
+                recipeOfTheDay = apiHandler.recipeOfTheDay(loadingDialogHandler);
               //  Response<JsonObject>  recipeOfTheDay2 = apiHandler.recipeOfTheDay();
 
 //                Object keyvalue = recipeOfTheDay.get("_id");
@@ -76,8 +95,11 @@ public class HomeFragment extends Fragment {
 //                String imgUrlString = imgUrl.toString();
 //                Log.d(Constants.TAG, "run: IMAGE URL RECIPE OF THE DAY :"+recipeOfTheDay2.body());
                 return;
+            }else{
+             //   loadingDialogHandler.stopAlertDialog();
             }
-                mHandler.postDelayed(runnableService,1*1000);
+                mHandler.postDelayed(runnableService,5*1000);
+//                mHandler.post(runnableService);
                 Log.d(Constants.TAG, "run: THREAD CHEKING FOR BEARER TOKEN TO FETCH RECIPE OF THE DAY  ");
 
         }
@@ -99,7 +121,16 @@ public class HomeFragment extends Fragment {
              recipeDetails = intent.getParcelableExtra("RECIPEOFTHEDAY");
             Log.d(Constants.TAG, "onReceive: MyBroadCastReceiver "+recipeDetails.getImg_url());
             recipeOfTheDay_Name_TextView.setText(recipeDetails.getRecipe_title());
-            new DownloadImage(recipeOfTheDayImageView).execute(recipeDetails.getImg_url());
+            if(getActivity()!=null ){
+            Glide.with(getActivity())
+                    .load(recipeDetails.getImg_url())
+                    .placeholder(R.drawable.ic_launcher_background)
+                    .into(recipeOfTheDayImageView);
+            }
+
+            Constants.RECIPE_OF_THE_DAY_IMAGE_DOWNLOADED = true;
+            Constants.RECIPE_OF_THE_DAY_IMAGE_URL = recipeDetails.getImg_url();
+            //   new DownloadImage(recipeOfTheDayImageView).execute(recipeDetails.getImg_url());
 //                    DownloadImageTask((ImageView) newsImageView,getContext()).execute(newsResponse.getImageurl());
         }
     }
