@@ -254,21 +254,21 @@ return receipe_info;
         receipe_info = "";
         //String receipe_info_returnval;
 //        Post post = new Post(231,"NeW Title","New Text");
-        Call<RecipeDetails[]> call = jsonPlaceHolderApi.getRecipeBySubregion(subregion,Constants.BEARER_TOKEN);
+        Call<RecipeSearchDetails[]> call = jsonPlaceHolderApi.getRecipeBySubregion(subregion,Constants.BEARER_TOKEN);
 //        Call<Post> call = jsonPlaceHolderApi.createPost(post);
 
-        call.enqueue(new Callback<RecipeDetails[]>() {
+        call.enqueue(new Callback<RecipeSearchDetails[]>() {
             @Override
-            public void onResponse(Call<RecipeDetails[]> call, Response<RecipeDetails[]> response) {
+            public void onResponse(Call<RecipeSearchDetails[]> call, Response<RecipeSearchDetails[]> response) {
                 if(!response.isSuccessful()){
                     textView_response.setText("code : "+response.code());
                     return;
                 }
-                RecipeDetails[] recipebysubregionResponse = response.body();
+                RecipeSearchDetails[] recipebysubregionResponse = response.body();
                 //WE ARE GETTING THE RECIPES BY THE SUBREGION
                 //IT RETURN THE ARRAY OF RECIPE DETAILS OBJECT
                 Log.d(Constants.TAG, "response.code: posrResponse.length :::"+recipebysubregionResponse.length);
-                for(RecipeDetails rec : recipebysubregionResponse){
+                for(RecipeSearchDetails rec : recipebysubregionResponse){
                     receipe_info+=rec.getEnergykcal();
                     receipe_info+="\n";
                 }
@@ -325,7 +325,7 @@ return receipe_info;
             }
 
             @Override
-            public void onFailure(Call<RecipeDetails[]> call, Throwable t) {
+            public void onFailure(Call<RecipeSearchDetails[]> call, Throwable t) {
 //                textView.setText(t.getMessage());
                 textView_response.setText("INVALID ID");
             }
@@ -339,19 +339,19 @@ return receipe_info;
         receipe_info = "";
         //String receipe_info_returnval;
 //        Post post = new Post(231,"NeW Title","New Text");
-        Call<RecipeDetails[]> call = jsonPlaceHolderApi.getRecipeByRegion(region,Constants.BEARER_TOKEN);
+        Call<RecipeSearchDetails[]> call = jsonPlaceHolderApi.getRecipeByRegion(region,Constants.BEARER_TOKEN);
 //        Call<Post> call = jsonPlaceHolderApi.createPost(post);
         Log.d(Constants.TAG, "getRecipeByRegion: 2");
-        call.enqueue(new Callback<RecipeDetails[]>() {
+        call.enqueue(new Callback<RecipeSearchDetails[]>() {
             @Override
-            public void onResponse(Call<RecipeDetails[]> call, Response<RecipeDetails[]> response) {
+            public void onResponse(Call<RecipeSearchDetails[]> call, Response<RecipeSearchDetails[]> response) {
                 Log.d(Constants.TAG, "onResponse: "+response.code());
                 if(!response.isSuccessful()){
                     textView_response.setText("code : "+response.code());
                     return;
                 }
-               // RecipeDetails[] recipebyregionResponse = response.body();
-                Log.d(Constants.TAG, "response.code: posrResponse.length :::");
+                RecipeSearchDetails[] recipebyregionResponse = response.body();
+                Log.d(Constants.TAG, "response.code: posrResponse.length :::"+recipebyregionResponse.length);
                 //WE ARE GETTING THE RECIPES BY THE SUBREGION
                 //IT RETURN THE ARRAY OF RECIPE DETAILS OBJECT
 //                for(RecipeDetails rec : recipebysubregionResponse){
@@ -410,7 +410,7 @@ return receipe_info;
             }
 
             @Override
-            public void onFailure(Call<RecipeDetails[]> call, Throwable t) {
+            public void onFailure(Call<RecipeSearchDetails[]> call, Throwable t) {
                 Log.d(Constants.TAG, "onFailure: "+call.toString()+t);
 //                textView.setText(t.getMessage());
                 textView_response.setText("INVALID ID");
@@ -419,5 +419,348 @@ return receipe_info;
 
         return receipe_info;
     }
+
+//    public String getAdvancedRecipeSearch(String subregion, TextView textView_response){
+//        receipe_info = "";
+//        //String receipe_info_returnval;
+////        Post post = new Post(231,"NeW Title","New Text");
+//        Call<RecipeSearchDetails[]> call = jsonPlaceHolderApi.getRecipeBySubregion(subregion,Constants.BEARER_TOKEN);
+////        Call<Post> call = jsonPlaceHolderApi.createPost(post);
+//
+//        call.enqueue(new Callback<RecipeSearchDetails[]>() {
+//            @Override
+//            public void onResponse(Call<RecipeSearchDetails[]> call, Response<RecipeSearchDetails[]> response) {
+//                if(!response.isSuccessful()){
+//                    textView_response.setText("code : "+response.code());
+//                    return;
+//                }
+//                RecipeSearchDetails[] recipebysubregionResponse = response.body();
+//                //WE ARE GETTING THE RECIPES BY THE SUBREGION
+//                //IT RETURN THE ARRAY OF RECIPE DETAILS OBJECT
+//                Log.d(Constants.TAG, "response.code: posrResponse.length :::"+recipebysubregionResponse.length);
+//                for(RecipeSearchDetails rec : recipebysubregionResponse){
+//                    receipe_info+=rec.getEnergykcal();
+//                    receipe_info+="\n";
+//                }
+//                Log.d(Constants.TAG, "onResponse: energukcal"+receipe_info);
+////                Log.d("jain", "response.toString: "+response.toString());
+////                Log.d("jain", "response.body: "+response.body());
+////                Log.d("jain", "response.message: "+response.message());
+////                Log.d("jain", "response.headers: "+response.headers());
+////                Log.d("jain", "response.raw: "+response.raw());
+////                String content = "Code:  "+response.code()+"\n";
+////                String receipe_info ="";
+//
+//                //ITERATING OVER JSON OBJ
+////                Iterator<String> keys = posrResponse.keySet().iterator();
+////                while(keys.hasNext()) {
+////                    String key = keys.next();
+////                    JsonElement jsonElement = posrResponse.get(key);
+////                    if(jsonElement!=null){
+////                    Log.d("jain", key + " : " + jsonElement.getAsString());
+////                    String keyval = key +" : "+jsonElement.getAsString()+"\n";
+////                    receipe_info += keyval;
+////                    }//ek value null a rhi thi isiliye faya
+////
+////                }
+//
+////                for (String keyStr : posrResponse.keySet()) {
+////                    Object keyvalue = posrResponse.get(keyStr);
+////
+////                    //Print key and value
+////                    Log.d("jain", keyStr + " : " + keyvalue);
+////                    String keyval = keyStr +" : "+keyvalue+"\n";
+////                    receipe_info += keyval;
+//                //for nested objects iteration if required
+//                //if (keyvalue instanceof JSONObject)
+//                //    printJsonObject((JSONObject)keyvalue);
+////                }
+//
+////                assert posrResponse != null;
+//
+//                // String accessToken = posrResponse.get("access_token").toString();
+//                //getAsString("access_token");
+//                // content+="ACCESS TOKEN :: "+accessToken;
+////                content += "ID:"+posrResponse.getId()+"\n";
+////                content+="User Id :"+posrResponse.getUserId()+"\n";
+////                content+= "Title : "+posrResponse.getTitle()+"\n";
+////                content+="Text : "+posrResponse.getText()+"\n \n ";
+//
+//                textView_response.setText(receipe_info);
+//                // receipe_info_returnval=receipe_info;
+//
+////                Intent intent = new Intent(this,RecipeInfo.class);
+////                intent.putExtra("RECIPE_INFO_BY_ID",receipe_info);
+////                startActivity(intent);
+//            }
+//
+//            @Override
+//            public void onFailure(Call<RecipeSearchDetails[]> call, Throwable t) {
+////                textView.setText(t.getMessage());
+//                textView_response.setText("INVALID ID");
+//            }
+//        });
+//
+//        return receipe_info;
+//    }
+
+    public String getIngredientsByRecipe(int id, TextView textView_response){
+        Log.d(Constants.TAG, "getRecipeByRegion: ");
+        receipe_info = "";
+        //String receipe_info_returnval;
+//        Post post = new Post(231,"NeW Title","New Text");
+        Call<IngredientsByRecipe[]> call = jsonPlaceHolderApi.getIngredientsByRecipe(id,Constants.BEARER_TOKEN);
+//        Call<Post> call = jsonPlaceHolderApi.createPost(post);
+        Log.d(Constants.TAG, "getRecipeByRegion: 2");
+        call.enqueue(new Callback<IngredientsByRecipe[]>() {
+            @Override
+            public void onResponse(Call<IngredientsByRecipe[]> call, Response<IngredientsByRecipe[]> response) {
+                Log.d(Constants.TAG, "onResponse: "+response.code());
+                if(!response.isSuccessful()){
+                    textView_response.setText("code : "+response.code());
+                    return;
+                }
+                IngredientsByRecipe[] recipeByRegionResponse = response.body();
+                Log.d(Constants.TAG, "response.code: posrResponse.length :::"+recipeByRegionResponse.length);
+                //WE ARE GETTING THE RECIPES BY THE SUBREGION
+                //IT RETURN THE ARRAY OF RECIPE DETAILS OBJECT
+//                for(RecipeDetails rec : recipebysubregionResponse){
+//                    receipe_info+=rec.get_id();
+//                    receipe_info+="\n";
+//                }
+//                Log.d("jain", "response.toString: "+response.toString());
+//                Log.d("jain", "response.body: "+response.body());
+//                Log.d("jain", "response.message: "+response.message());
+//                Log.d("jain", "response.headers: "+response.headers());
+//                Log.d("jain", "response.raw: "+response.raw());
+//                String content = "Code:  "+response.code()+"\n";
+//                String receipe_info ="";
+
+                //ITERATING OVER JSON OBJ
+//                Iterator<String> keys = posrResponse.keySet().iterator();
+//                while(keys.hasNext()) {
+//                    String key = keys.next();
+//                    JsonElement jsonElement = posrResponse.get(key);
+//                    if(jsonElement!=null){
+//                    Log.d("jain", key + " : " + jsonElement.getAsString());
+//                    String keyval = key +" : "+jsonElement.getAsString()+"\n";
+//                    receipe_info += keyval;
+//                    }//ek value null a rhi thi isiliye faya
+//
+//                }
+
+//                for (String keyStr : posrResponse.keySet()) {
+//                    Object keyvalue = posrResponse.get(keyStr);
+//
+//                    //Print key and value
+//                    Log.d("jain", keyStr + " : " + keyvalue);
+//                    String keyval = keyStr +" : "+keyvalue+"\n";
+//                    receipe_info += keyval;
+                //for nested objects iteration if required
+                //if (keyvalue instanceof JSONObject)
+                //    printJsonObject((JSONObject)keyvalue);
+//                }
+
+//                assert posrResponse != null;
+
+                // String accessToken = posrResponse.get("access_token").toString();
+                //getAsString("access_token");
+                // content+="ACCESS TOKEN :: "+accessToken;
+//                content += "ID:"+posrResponse.getId()+"\n";
+//                content+="User Id :"+posrResponse.getUserId()+"\n";
+//                content+= "Title : "+posrResponse.getTitle()+"\n";
+//                content+="Text : "+posrResponse.getText()+"\n \n ";
+
+                textView_response.setText(receipe_info);
+                // receipe_info_returnval=receipe_info;
+
+//                Intent intent = new Intent(this,RecipeInfo.class);
+//                intent.putExtra("RECIPE_INFO_BY_ID",receipe_info);
+//                startActivity(intent);
+            }
+
+            @Override
+            public void onFailure(Call<IngredientsByRecipe[]> call, Throwable t) {
+                Log.d(Constants.TAG, "onFailure: "+call.toString()+t);
+//                textView.setText(t.getMessage());
+                textView_response.setText("INVALID ID");
+            }
+        });
+
+        return receipe_info;
+    }
+
+    public String searchIngredient(String ingredientName, TextView textView_response){
+        Log.d(Constants.TAG, "getRecipeByRegion: ");
+        receipe_info = "";
+        //String receipe_info_returnval;
+//        Post post = new Post(231,"NeW Title","New Text");
+        Call<SearchIngredient[]> call = jsonPlaceHolderApi.searchIngredient(ingredientName,Constants.BEARER_TOKEN);
+//        Call<Post> call = jsonPlaceHolderApi.createPost(post);
+        Log.d(Constants.TAG, "getRecipeByRegion: 2");
+        call.enqueue(new Callback<SearchIngredient[]>() {
+            @Override
+            public void onResponse(Call<SearchIngredient[]> call, Response<SearchIngredient[]> response) {
+                Log.d(Constants.TAG, "onResponse: "+response.code());
+                if(!response.isSuccessful()){
+                    textView_response.setText("code : "+response.code());
+                    return;
+                }
+                SearchIngredient[] searchIngredientsResponse = response.body();
+                Log.d(Constants.TAG, "response.code: posrResponse.length searchIngredientsResponse:::"+searchIngredientsResponse.length);
+                //WE ARE GETTING THE RECIPES BY THE SUBREGION
+                //IT RETURN THE ARRAY OF RECIPE DETAILS OBJECT
+//                for(RecipeDetails rec : recipebysubregionResponse){
+//                    receipe_info+=rec.get_id();
+//                    receipe_info+="\n";
+//                }
+//                Log.d("jain", "response.toString: "+response.toString());
+//                Log.d("jain", "response.body: "+response.body());
+//                Log.d("jain", "response.message: "+response.message());
+//                Log.d("jain", "response.headers: "+response.headers());
+//                Log.d("jain", "response.raw: "+response.raw());
+//                String content = "Code:  "+response.code()+"\n";
+//                String receipe_info ="";
+
+                //ITERATING OVER JSON OBJ
+//                Iterator<String> keys = posrResponse.keySet().iterator();
+//                while(keys.hasNext()) {
+//                    String key = keys.next();
+//                    JsonElement jsonElement = posrResponse.get(key);
+//                    if(jsonElement!=null){
+//                    Log.d("jain", key + " : " + jsonElement.getAsString());
+//                    String keyval = key +" : "+jsonElement.getAsString()+"\n";
+//                    receipe_info += keyval;
+//                    }//ek value null a rhi thi isiliye faya
+//
+//                }
+
+//                for (String keyStr : posrResponse.keySet()) {
+//                    Object keyvalue = posrResponse.get(keyStr);
+//
+//                    //Print key and value
+//                    Log.d("jain", keyStr + " : " + keyvalue);
+//                    String keyval = keyStr +" : "+keyvalue+"\n";
+//                    receipe_info += keyval;
+                //for nested objects iteration if required
+                //if (keyvalue instanceof JSONObject)
+                //    printJsonObject((JSONObject)keyvalue);
+//                }
+
+//                assert posrResponse != null;
+
+                // String accessToken = posrResponse.get("access_token").toString();
+                //getAsString("access_token");
+                // content+="ACCESS TOKEN :: "+accessToken;
+//                content += "ID:"+posrResponse.getId()+"\n";
+//                content+="User Id :"+posrResponse.getUserId()+"\n";
+//                content+= "Title : "+posrResponse.getTitle()+"\n";
+//                content+="Text : "+posrResponse.getText()+"\n \n ";
+
+                textView_response.setText(receipe_info);
+                // receipe_info_returnval=receipe_info;
+
+//                Intent intent = new Intent(this,RecipeInfo.class);
+//                intent.putExtra("RECIPE_INFO_BY_ID",receipe_info);
+//                startActivity(intent);
+            }
+
+            @Override
+            public void onFailure(Call<SearchIngredient[]> call, Throwable t) {
+                Log.d(Constants.TAG, "onFailure: "+call.toString()+t);
+//                textView.setText(t.getMessage());
+                textView_response.setText("INVALID ID");
+            }
+        });
+
+        return receipe_info;
+    }
+
+    public String searchIngredientNutrition(String ingredientName, TextView textView_response){
+        Log.d(Constants.TAG, "getRecipeByRegion: ");
+        receipe_info = "";
+        //String receipe_info_returnval;
+//        Post post = new Post(231,"NeW Title","New Text");
+        Call<SearchIngredientNutrition[]> call = jsonPlaceHolderApi.searchIngredientNutrition(ingredientName,Constants.BEARER_TOKEN);
+//        Call<Post> call = jsonPlaceHolderApi.createPost(post);
+        Log.d(Constants.TAG, "getRecipeByRegion: 2");
+        call.enqueue(new Callback<SearchIngredientNutrition[]>() {
+            @Override
+            public void onResponse(Call<SearchIngredientNutrition[]> call, Response<SearchIngredientNutrition[]> response) {
+                Log.d(Constants.TAG, "onResponse: "+response.code());
+                if(!response.isSuccessful()){
+                    textView_response.setText("code : "+response.code());
+                    return;
+                }
+                SearchIngredientNutrition[] searchIngredientsResponse = response.body();
+                Log.d(Constants.TAG, "response.code: posrResponse.length SearchIngredientNutrition:::"+searchIngredientsResponse.length);
+                //WE ARE GETTING THE RECIPES BY THE SUBREGION
+                //IT RETURN THE ARRAY OF RECIPE DETAILS OBJECT
+//                for(RecipeDetails rec : recipebysubregionResponse){
+//                    receipe_info+=rec.get_id();
+//                    receipe_info+="\n";
+//                }
+//                Log.d("jain", "response.toString: "+response.toString());
+//                Log.d("jain", "response.body: "+response.body());
+//                Log.d("jain", "response.message: "+response.message());
+//                Log.d("jain", "response.headers: "+response.headers());
+//                Log.d("jain", "response.raw: "+response.raw());
+//                String content = "Code:  "+response.code()+"\n";
+//                String receipe_info ="";
+
+                //ITERATING OVER JSON OBJ
+//                Iterator<String> keys = posrResponse.keySet().iterator();
+//                while(keys.hasNext()) {
+//                    String key = keys.next();
+//                    JsonElement jsonElement = posrResponse.get(key);
+//                    if(jsonElement!=null){
+//                    Log.d("jain", key + " : " + jsonElement.getAsString());
+//                    String keyval = key +" : "+jsonElement.getAsString()+"\n";
+//                    receipe_info += keyval;
+//                    }//ek value null a rhi thi isiliye faya
+//
+//                }
+
+//                for (String keyStr : posrResponse.keySet()) {
+//                    Object keyvalue = posrResponse.get(keyStr);
+//
+//                    //Print key and value
+//                    Log.d("jain", keyStr + " : " + keyvalue);
+//                    String keyval = keyStr +" : "+keyvalue+"\n";
+//                    receipe_info += keyval;
+                //for nested objects iteration if required
+                //if (keyvalue instanceof JSONObject)
+                //    printJsonObject((JSONObject)keyvalue);
+//                }
+
+//                assert posrResponse != null;
+
+                // String accessToken = posrResponse.get("access_token").toString();
+                //getAsString("access_token");
+                // content+="ACCESS TOKEN :: "+accessToken;
+//                content += "ID:"+posrResponse.getId()+"\n";
+//                content+="User Id :"+posrResponse.getUserId()+"\n";
+//                content+= "Title : "+posrResponse.getTitle()+"\n";
+//                content+="Text : "+posrResponse.getText()+"\n \n ";
+
+                textView_response.setText(receipe_info);
+                // receipe_info_returnval=receipe_info;
+
+//                Intent intent = new Intent(this,RecipeInfo.class);
+//                intent.putExtra("RECIPE_INFO_BY_ID",receipe_info);
+//                startActivity(intent);
+            }
+
+            @Override
+            public void onFailure(Call<SearchIngredientNutrition[]> call, Throwable t) {
+                Log.d(Constants.TAG, "onFailure: "+call.toString()+t);
+//                textView.setText(t.getMessage());
+                textView_response.setText("INVALID ID");
+            }
+        });
+
+        return receipe_info;
+    }
+
 
 }

@@ -35,11 +35,23 @@ public interface JsonPlaceHolderApi {
 
     //RECIPE By SUB REGION
     @GET("api/recipeDB/search_subregion/{subregion}")
-    Call<RecipeDetails[]> getRecipeBySubregion(@Path("subregion") String subregion,@Header("Authorization") String token);
+    Call<RecipeSearchDetails[]> getRecipeBySubregion(@Path("subregion") String subregion,@Header("Authorization") String token);
 
     //RECIPE By SUB REGION
     @GET("api/recipeDB/search_region/{region}")
-    Call<RecipeDetails[]> getRecipeByRegion(@Path("region") String region,@Header("Authorization") String token);
+    Call<RecipeSearchDetails[]> getRecipeByRegion(@Path("region") String region,@Header("Authorization") String token);
+
+    //getIngredientsByRecipe
+    @GET("api/recipeDB/getingredientsbyrecipe/{id}")
+    Call<IngredientsByRecipe[]> getIngredientsByRecipe(@Path("id") int id,@Header("Authorization") String token);
+
+    @GET("api/recipeDB/searchingredientinrecipes/{ingredientName}")
+    Call<SearchIngredient[]> searchIngredient(@Path("ingredientName") String ingredientName,@Header("Authorization") String token);
+
+    @GET("api/recipeDB/searchingredientnutrition/{ingredientName}")
+    Call<SearchIngredientNutrition[]> searchIngredientNutrition(@Path("ingredientName") String ingredientName,@Header("Authorization") String token);
+
+
 //    search_subregion
 
 

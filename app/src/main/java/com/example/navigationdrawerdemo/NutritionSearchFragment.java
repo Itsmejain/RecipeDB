@@ -8,11 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link NutritionSearchFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+///**
+// * A simple {@link Fragment} subclass.
+// * Use the {@link NutritionSearchFragment#newInstance} factory method to
+// * create an instance of this fragment.
+// */
 public class NutritionSearchFragment extends Fragment {
 
     @Override
