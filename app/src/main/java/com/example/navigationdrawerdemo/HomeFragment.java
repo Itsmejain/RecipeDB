@@ -21,6 +21,7 @@ import androidx.fragment.app.Fragment;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
@@ -46,7 +47,7 @@ public class HomeFragment extends Fragment {
         if(Constants.RECIPE_OF_THE_DAY_IMAGE_DOWNLOADED){
             Glide.with(getActivity())
                     .load(Constants.RECIPE_OF_THE_DAY_IMAGE_URL)
-                    .placeholder(R.drawable.ic_launcher_background)
+                    .placeholder(R.drawable.ic_launcher_background)//.transform(new CircleCrop())
                     .into(recipeOfTheDayImageView);
         }
         //HANDLER TO FETCH AND DISPLAY THE RECIPE OF THE DAY
