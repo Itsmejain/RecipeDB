@@ -33,6 +33,15 @@ public interface JsonPlaceHolderApi {
     @GET("api/recipeDB/recipeoftheday")
     Call<JsonObject> getRecipeOfTheDay(@Header("Authorization") String token);
 
+    //RECIPE By SUB REGION
+    @GET("api/recipeDB/search_subregion/{subregion}")
+    Call<RecipeDetails[]> getRecipeBySubregion(@Path("subregion") String subregion,@Header("Authorization") String token);
+
+    //RECIPE By SUB REGION
+    @GET("api/recipeDB/search_region/{region}")
+    Call<RecipeDetails[]> getRecipeByRegion(@Path("region") String region,@Header("Authorization") String token);
+//    search_subregion
+
 
 
 //    @GET("posts")
