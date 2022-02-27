@@ -59,6 +59,9 @@ public class HomeFragment extends Fragment {
 //        pDialog.show();
           loadingDialogHandler =
                  new LoadingDialogHandler(getActivity());
+
+        //ADD SPLASH SCREEN HERE
+
          loadingDialogHandler.startAlertDialog();
             mHandler = new Handler();
             mHandler.post(runnableService);
