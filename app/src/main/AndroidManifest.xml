@@ -13,10 +13,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Navigationdrawerdemo">
+        <activity
+            android:name=".SummaryActivity"
+            android:exported="false" />
+
         <service
             android:name=".CredentialBackgroundService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
