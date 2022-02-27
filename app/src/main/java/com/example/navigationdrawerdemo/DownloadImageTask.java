@@ -35,6 +35,7 @@ class DownloadImage extends AsyncTask<String,String, Bitmap> {
     protected void onPostExecute(Bitmap result) {
         // Set the bitmap into ImageView
         imageView.setImageBitmap(result);
+        Constants.RECIPE_OF_THE_DAY_IMAGE_DOWNLOADED=true;
         // Close progressdialog
 
     }
