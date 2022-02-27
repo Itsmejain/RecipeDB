@@ -5,15 +5,15 @@ import android.os.Parcelable;
 
 public class RecipeDetails implements Parcelable {
     public String _id;
-    public int cook_time;
-    public int prep_time;
+    public String cook_time;
+    public String prep_time;
     public String url;
-    public int servings;
+    public String servings;
     public String img_url;
-    public int total_time;
+    public String total_time;
     public String region;
-    public int recipe_id;
-    public int recipe_index;
+    public String recipe_id;
+    public String recipe_index;
     public String recipe_title;
     public double adjusted_Protein;
     public double alanine;
@@ -35,7 +35,7 @@ public class RecipeDetails implements Parcelable {
     public double cystine;
     public double dihydrophylloquinone;
     public double energyKJ;
-    public double energykcal;
+    public String energykcal;
     public double fattyacidstotalmonounsaturated;
     public double fattyacidstotalpolyunsaturated;
     public double fattyacidstotalpolyunsaturated150;
@@ -170,18 +170,19 @@ public class RecipeDetails implements Parcelable {
     public double protein;
     public double caffeine;
     public String source;
+    public Object testdata;
 
     protected RecipeDetails(Parcel in) {
         _id = in.readString();
-        cook_time = in.readInt();
-        prep_time = in.readInt();
+        cook_time = in.readString();
+        prep_time = in.readString();
         url = in.readString();
-        servings = in.readInt();
+        servings = in.readString();
         img_url = in.readString();
-        total_time = in.readInt();
+        total_time = in.readString();
         region = in.readString();
-        recipe_id = in.readInt();
-        recipe_index = in.readInt();
+        recipe_id = in.readString();
+        recipe_index = in.readString();
         recipe_title = in.readString();
         adjusted_Protein = in.readDouble();
         alanine = in.readDouble();
@@ -203,7 +204,7 @@ public class RecipeDetails implements Parcelable {
         cystine = in.readDouble();
         dihydrophylloquinone = in.readDouble();
         energyKJ = in.readDouble();
-        energykcal = in.readDouble();
+        energykcal = in.readString();
         fattyacidstotalmonounsaturated = in.readDouble();
         fattyacidstotalpolyunsaturated = in.readDouble();
         fattyacidstotalpolyunsaturated150 = in.readDouble();
@@ -359,19 +360,19 @@ public class RecipeDetails implements Parcelable {
         this._id = _id;
     }
 
-    public int getCook_time() {
+    public String getCook_time() {
         return cook_time;
     }
 
-    public void setCook_time(int cook_time) {
+    public void setCook_time(String cook_time) {
         this.cook_time = cook_time;
     }
 
-    public int getPrep_time() {
+    public String getPrep_time() {
         return prep_time;
     }
 
-    public void setPrep_time(int prep_time) {
+    public void setPrep_time(String prep_time) {
         this.prep_time = prep_time;
     }
 
@@ -383,11 +384,11 @@ public class RecipeDetails implements Parcelable {
         this.url = url;
     }
 
-    public int getServings() {
+    public String getServings() {
         return servings;
     }
 
-    public void setServings(int servings) {
+    public void setServings(String servings) {
         this.servings = servings;
     }
 
@@ -399,11 +400,11 @@ public class RecipeDetails implements Parcelable {
         this.img_url = img_url;
     }
 
-    public int getTotal_time() {
+    public String getTotal_time() {
         return total_time;
     }
 
-    public void setTotal_time(int total_time) {
+    public void setTotal_time(String total_time) {
         this.total_time = total_time;
     }
 
@@ -415,19 +416,19 @@ public class RecipeDetails implements Parcelable {
         this.region = region;
     }
 
-    public int getRecipe_id() {
+    public String getRecipe_id() {
         return recipe_id;
     }
 
-    public void setRecipe_id(int recipe_id) {
+    public void setRecipe_id(String recipe_id) {
         this.recipe_id = recipe_id;
     }
 
-    public int getRecipe_index() {
+    public String getRecipe_index() {
         return recipe_index;
     }
 
-    public void setRecipe_index(int recipe_index) {
+    public void setRecipe_index(String recipe_index) {
         this.recipe_index = recipe_index;
     }
 
@@ -599,11 +600,11 @@ public class RecipeDetails implements Parcelable {
         this.energyKJ = energyKJ;
     }
 
-    public double getEnergykcal() {
+    public String getEnergykcal() {
         return energykcal;
     }
 
-    public void setEnergykcal(double energykcal) {
+    public void setEnergykcal(String energykcal) {
         this.energykcal = energykcal;
     }
 
@@ -1679,6 +1680,14 @@ public class RecipeDetails implements Parcelable {
         this.source = source;
     }
 
+    public Object getTestdata() {
+        return testdata;
+    }
+
+    public void setTestdata(Object testdata) {
+        this.testdata = testdata;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -1687,15 +1696,15 @@ public class RecipeDetails implements Parcelable {
     @Override
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(_id);
-        parcel.writeInt(cook_time);
-        parcel.writeInt(prep_time);
+        parcel.writeString(cook_time);
+        parcel.writeString(prep_time);
         parcel.writeString(url);
-        parcel.writeInt(servings);
+        parcel.writeString(servings);
         parcel.writeString(img_url);
-        parcel.writeInt(total_time);
+        parcel.writeString(total_time);
         parcel.writeString(region);
-        parcel.writeInt(recipe_id);
-        parcel.writeInt(recipe_index);
+        parcel.writeString(recipe_id);
+        parcel.writeString(recipe_index);
         parcel.writeString(recipe_title);
         parcel.writeDouble(adjusted_Protein);
         parcel.writeDouble(alanine);
@@ -1717,7 +1726,7 @@ public class RecipeDetails implements Parcelable {
         parcel.writeDouble(cystine);
         parcel.writeDouble(dihydrophylloquinone);
         parcel.writeDouble(energyKJ);
-        parcel.writeDouble(energykcal);
+        parcel.writeString(energykcal);
         parcel.writeDouble(fattyacidstotalmonounsaturated);
         parcel.writeDouble(fattyacidstotalpolyunsaturated);
         parcel.writeDouble(fattyacidstotalpolyunsaturated150);

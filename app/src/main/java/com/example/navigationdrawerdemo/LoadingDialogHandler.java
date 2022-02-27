@@ -1,6 +1,7 @@
 package com.example.navigationdrawerdemo;
 
 import android.app.Activity;
+import android.os.Handler;
 import android.view.LayoutInflater;
 
 import androidx.appcompat.app.AlertDialog;
@@ -30,6 +31,16 @@ public class LoadingDialogHandler {
         builder.setCancelable(true);
         alertDialog = builder.create();
         alertDialog.show();
+        class MyRunnable implements Runnable {
+
+            @Override
+            public void run() {
+                alertDialog.hide();
+            }
+        }
+        Runnable r = new MyRunnable();
+        Handler handler = new Handler();
+        handler.postDelayed(r,5*1000);
     }
     void stopAlertDialog(){
     alertDialog.dismiss();
