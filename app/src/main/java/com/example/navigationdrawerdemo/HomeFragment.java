@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +22,7 @@ import androidx.fragment.app.Fragment;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
@@ -34,6 +36,7 @@ public class HomeFragment extends Fragment {
     private TextView recipeOfTheDay_Name_TextView;
     private JsonObject recipeOfTheDay;
     private RecipeDetails recipeDetails;
+    private ImageButton imageButtonSummary;
     ProgressDialog pDialog;
     LoadingDialogHandler loadingDialogHandler;
     @Nullable
@@ -42,13 +45,22 @@ public class HomeFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_home,container,false);
         recipeOfTheDayImageView = v.findViewById(R.id.imageView_recipeofhtheday);
         recipeOfTheDay_Name_TextView = v.findViewById(R.id.textView_recipe_of_the_day_name);
+        imageButtonSummary = v.findViewById(R.id.imageButtonSummary);
 
         if(Constants.RECIPE_OF_THE_DAY_IMAGE_DOWNLOADED){
             Glide.with(getActivity())
                     .load(Constants.RECIPE_OF_THE_DAY_IMAGE_URL)
-                    .placeholder(R.drawable.ic_launcher_background)
+                    .placeholder(R.drawable.ic_launcher_background)//.transform(new CircleCrop())
                     .into(recipeOfTheDayImageView);
         }
+
+        imageButtonSummary.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(),SummaryActivity.class);
+                startActivity(intent);
+            }
+        });
         //HANDLER TO FETCH AND DISPLAY THE RECIPE OF THE DAY
 //        if(!Constants.RECIPE_OF_THE_DAY_IMAGE_DOWNLOADED) {
 //         pDialog = new ProgressDialog(getContext());
@@ -58,6 +70,9 @@ public class HomeFragment extends Fragment {
 //        pDialog.show();
           loadingDialogHandler =
                  new LoadingDialogHandler(getActivity());
+
+        //ADD SPLASH SCREEN HERE
+
          loadingDialogHandler.startAlertDialog();
             mHandler = new Handler();
             mHandler.post(runnableService);

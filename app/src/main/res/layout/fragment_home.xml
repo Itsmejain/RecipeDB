@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:background="@drawable/wallpaper2">
 
     <TextView
         android:id="@+id/textView_recipe_of_the_day_headline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="10dp"
         android:text="Recipe of the day"
         android:textColor="#000000"
         android:textSize="24dp"
@@ -36,12 +36,13 @@
         android:id="@+id/textView_recipe_of_the_day_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="Tamatim Mashwiya"
         android:textColor="#030303"
         android:textSize="24dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView_recipeofhtheday" />
 
@@ -49,37 +50,34 @@
         android:id="@+id/textView_sumamry_headline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
+        android:padding="10dp"
         android:text="SUMMARY"
         android:textColor="#000000"
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.062"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_recipe_of_the_day_name" />
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonSummary" />
 
-    <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ImageButton
+        android:id="@+id/imageButtonSummary"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginTop="4dp"
+        android:contentDescription="@string/app_name"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.053"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_sumamry_headline">
+        app:layout_constraintTop_toBottomOf="@+id/textView_recipe_of_the_day_name"
+        app:srcCompat="@drawable/sumarypng" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="114dp"
+        android:layout_height="127dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/cook" />
 
-            <TextView
-                android:id="@+id/textView_summary"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="Cooking is the act of turning nature into the culture which has enabled the advent of the omnivorous human diet. The cultural wisdom of processing raw ingredients into delicious dishes is embodied in their cuisines. Recipes thus are the cultural capsules that encode elaborate cooking protocols for evoking sensory satiation as well as providing nourishment. As we stand on the verge of an epidemic of diet-linked disorders, it is eminently important to investigate the culinary correlates of dietary elements to probe their association with sensory responses as well as consequences for nutrition and health.  RecipeDB is a structured compilation of recipes, ingredients, and nutrition profiles interlinked with flavor profiles and health associations. The repertoire comprises of meticulous integration of over 1,18,000 recipes from cuisines across the globe (6 continents, 26 geo-cultural regions, and 74 countries), cooked using 268 processes (heat, cook, boil, simmer, bake, etc.), by blending over 23,500 ingredients from diverse categories, which are further linked to their flavor molecules (FlavorDB), nutritional profiles (USDA) and empirical records of disease associations obtained from Medline (DietRx). This resource is aimed at facilitating scientific explorations of the culinary space (recipe, ingredient, cooking processes, dietary styles, etc.) to taste attributes (flavor profile) and health (nutrition and disease associations) seeking for divergent applications."
-                android:textColor="#010101"
-                android:textSize="16sp" />
-        </LinearLayout>
-    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

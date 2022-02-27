@@ -30,7 +30,7 @@ public class FaqFragment extends Fragment {
 //        qList=new ArrayList<String>();
         View v = inflater.inflate(R.layout.fragment_faq,container,false);
 
-        question = new String[]{"dummy",
+        question = new String[]{
                 "What is RecipeDB?",
                 "What types of queries are processed by RecipeDB?",
                 "How do I use “Recipe Search”?",
@@ -47,7 +47,7 @@ public class FaqFragment extends Fragment {
                 "What are the sources of information for RecipeDB?"
         };
 
-        answer = new String[]{"answerDummy",
+        answer = new String[]{
                 "RecipeDB is a structured repository of recipes and ingredients from over 22 world regions, intended to enable data-driven explorations of recipes. In conjunction with flavor molecules data from FlavorDB; RecipeDB facilitates multi-level analysis of traditional recipes (dietary classifications, ingredient composition, nutritional profile, recipes, etc.).",
                 "RecipeDB facilitates an elastic search to query recipes based on factors such as geographical location of origin (i.e. region, country), name, dietary classification, ingredients associated/unassociated with the recipe and its nutritional information (i.e. calorie, protein, etc. content).",
                 "Refer to the “Search” section on the “How to Use” page.",
