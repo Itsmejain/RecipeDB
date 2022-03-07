@@ -30,10 +30,11 @@ public class ContactUsFragment extends Fragment implements OnMapReadyCallback {
         View v = inflater.inflate(R.layout.fragment_contact_us,container,false);
         googleMapView = v.findViewById(R.id.mapView);
         TextView websiteTextView = v.findViewById(R.id.textView_centerCB);
-        websiteTextView.setClickable(true);
-        websiteTextView.setMovementMethod(LinkMovementMethod.getInstance());
-        String text = "<a href='"+Constants.CCB_WEBSITE_LINK+"'>Infosys Centre for Artificial Intelligence</a>";
-        websiteTextView.setText(Html.fromHtml(text));
+//        websiteTextView.setClickable(true);
+//        websiteTextView.setMovementMethod(LinkMovementMethod.getInstance());
+//        String text = "<a href='"+Constants.CCB_WEBSITE_LINK+"'>Infosys Centre for Artificial Intelligence</a>";
+//        websiteTextView.setText(Html.fromHtml(text));
+        websiteTextView.setText("Infosys Centre for Artificial Intelligence");
         initGoogleMap(savedInstanceState);
 
         return v;
