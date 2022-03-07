@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -42,10 +43,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+//        if(savedInstanceState == null) {
+//            getSupportFragmentManager()
+//                    .beginTransaction()
+//                    .replace(R.id.fragment_container, new HomeFragment())
+//                    .commit();
+//            navigationView.setCheckedItem(R.id.nav_home);
+//        }
         if(savedInstanceState == null) {
             getSupportFragmentManager()
                     .beginTransaction()
-                    .replace(R.id.fragment_container, new HomeFragment())
+                    .replace(R.id.fragment_container, new NewHomeFragment())
                     .commit();
             navigationView.setCheckedItem(R.id.nav_home);
         }
@@ -96,7 +104,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     Fragment selectedFragment = null;
                     switch (item.getItemId()){
                         case R.id.nav_home:
-                            selectedFragment = new HomeFragment();
+                            navigationView.setVisibility(View.GONE);
+                            selectedFragment = new NewHomeFragment();
                             break;
                         case R.id.nav_visual_search:
                             selectedFragment = new VisualSearchFragment();
