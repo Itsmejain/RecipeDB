@@ -36,6 +36,10 @@ public class NewHomeFragment extends Fragment {
 //    private ImageButton imageButtonSummary;
     CardView CardButton_summary;
     CardView CardButton_statistics;
+    CardView CardButton_textsearch;
+    CardView CardButton_visualsearch;
+    CardView CardButton_cosylabs;
+    CardView CardButton_contactus;
     ProgressDialog pDialog;
     LoadingDialogHandler loadingDialogHandler;
 
@@ -45,6 +49,11 @@ public class NewHomeFragment extends Fragment {
         View v = inflater.inflate(R.layout.newhomefragment, container, false);//old fragment
         CardButton_summary = v.findViewById(R.id.CardButton_summary);
         CardButton_statistics = v.findViewById(R.id.CardButton_statistics);
+        CardButton_textsearch = v.findViewById(R.id.CardButton_textsearch);
+        CardButton_visualsearch = v.findViewById(R.id.CardButton_visualsearch);
+        CardButton_cosylabs = v.findViewById(R.id.CardButton_cosylabs);
+        CardButton_contactus = v.findViewById(R.id.CardButton_contactus);
+
         CardButton_summary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,6 +76,66 @@ public class NewHomeFragment extends Fragment {
 
             }
         });
+        CardButton_textsearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getContext(), "TEXT SEARCH CLICKED", Toast.LENGTH_SHORT).show();
+                if(getActivity()!=null){
+                    BottomNavigationView navBar = getActivity().findViewById(R.id.bottom_navigation);
+                    navBar.setVisibility(View.VISIBLE);
+                    View vi = navBar.findViewById(R.id.nav_search);
+                    vi.performClick();
+                }
+            }
+        });
+        CardButton_visualsearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getContext(), "TEXT SEARCH CLICKED", Toast.LENGTH_SHORT).show();
+                if(getActivity()!=null){
+                    BottomNavigationView navBar = getActivity().findViewById(R.id.bottom_navigation);
+                    navBar.setVisibility(View.VISIBLE);
+                    View vi = navBar.findViewById(R.id.nav_visual_search);
+                    vi.performClick();
+                }
+            }
+        });
+        CardButton_cosylabs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getContext(), "COSYLABS CLICKED", Toast.LENGTH_SHORT).show();
+                if(getActivity()!=null){
+
+                    getActivity().getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.fragment_container,new CosylabsFragment())
+                            .addToBackStack("rdb")
+                            .commit();
+//                    BottomNavigationView navBar = getActivity().findViewById(R.id.bottom_navigation);
+//                    navBar.setVisibility(View.VISIBLE);
+//                    View vi = navBar.findViewById(R.id.nav_search);
+//                    vi.performClick();
+                }
+            }
+        });
+        CardButton_contactus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getContext(), "CONTACT US CLICKED", Toast.LENGTH_SHORT).show();
+                if(getActivity()!=null){
+//                    BottomNavigationView navBar = getActivity().findViewById(R.id.bottom_navigation);
+//                    navBar.setVisibility(View.VISIBLE);
+//                    View vi = navBar.findViewById(R.id.nav_search);
+//                    vi.performClick();
+                    getActivity().getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.fragment_container,new ContactUsFragment())
+                            .addToBackStack("rdb")
+                            .commit();
+                }
+            }
+        });
+
         BottomNavigationView navBar = getActivity().findViewById(R.id.bottom_navigation);
         navBar.setVisibility(View.GONE);
 
