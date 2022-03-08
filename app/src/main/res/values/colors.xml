@@ -14,5 +14,7 @@
     <color name="button4">#DD2C00</color>
     <color name="button5">#DD2C00</color>
     <color name="button6">#FF6D00</color>
+    <color name="overlay_dark_40">#66000000</color>
+    <color name="grey_2">#505050</color>
 
 </resources>
