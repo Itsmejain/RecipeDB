@@ -15,8 +15,8 @@
         android:theme="@style/Theme.Navigationdrawerdemo">
         <activity
             android:name=".SummaryActivity"
-            android:exported="false"
-            android:theme="@style/Theme.Navigationdrawerdemo.NoActionBar"/>
+            android:exported="true"
+         />
 
         <service
             android:name=".CredentialBackgroundService"

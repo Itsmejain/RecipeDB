@@ -4,43 +4,258 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/wallpaper2"
-    tools:context=".SummaryActivity"
-    >
+    android:background="@drawable/wallpaper_black_portrait"
+    tools:context=".SummaryActivity">
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="406dp"
-        android:layout_height="348dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/wave"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/summarytitle" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="2dp"
+        android:fontFamily="@font/nutinosans"
+        android:gravity="center"
+        android:padding="30dp"
+        android:text="SUMMARY"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
-        android:layout_width="408dp"
-        android:layout_height="569dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
+
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/textView2"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:padding="10dp"
-                android:text="Cooking is the act of turning nature into the culture which has enabled the advent of the omnivorous human diet. The cultural wisdom of processing raw ingredients into delicious dishes is embodied in their cuisines. Recipes thus are the cultural capsules that encode elaborate cooking protocols for evoking sensory satiation as well as providing nourishment. As we stand on the verge of an epidemic of diet-linked disorders, it is eminently important to investigate the culinary correlates of dietary elements to probe their association with sensory responses as well as consequences for nutrition and health.  RecipeDB is a structured compilation of recipes, ingredients, and nutrition profiles interlinked with flavor profiles and health associations. The repertoire comprises of meticulous integration of over 1,18,000 recipes from cuisines across the globe (6 continents, 26 geo-cultural regions, and 74 countries), cooked using 268 processes (heat, cook, boil, simmer, bake, etc.), by blending over 23,500 ingredients from diverse categories, which are further linked to their flavor molecules (FlavorDB), nutritional profiles (USDA) and empirical records of disease associations obtained from Medline (DietRx). This resource is aimed at facilitating scientific explorations of the culinary space (recipe, ingredient, cooking processes, dietary styles, etc.) to taste attributes (flavor profile) and health (nutrition and disease associations) seeking for divergent applications."
-                android:textColor="#000000"
-                android:textSize="24sp" />
-        </LinearLayout>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:orientation="vertical">
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/round_border"
+                    app:cardCornerRadius="30dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:background="@drawable/round_border"
+                        android:gravity="center"
+                        android:padding="15dp"
+                        android:text="point1" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    app:cardCornerRadius="30dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:background="@drawable/round_border"
+                        android:gravity="center"
+                        android:padding="15dp"
+                        android:text="point1" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/round_border"
+                    app:cardCornerRadius="30dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:background="@drawable/round_border"
+                        android:gravity="center"
+                        android:padding="15dp"
+                        android:text="point1" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    app:cardCornerRadius="30dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:background="@drawable/round_border"
+                        android:gravity="center"
+                        android:padding="15dp"
+                        android:text="point1" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/round_border"
+                    app:cardCornerRadius="30dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:background="@drawable/round_border"
+                        android:gravity="center"
+                        android:padding="15dp"
+                        android:text="point1" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    app:cardCornerRadius="30dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:background="@drawable/round_border"
+                        android:gravity="center"
+                        android:padding="15dp"
+                        android:text="point1" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/round_border"
+                    app:cardCornerRadius="30dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:background="@drawable/round_border"
+                        android:gravity="center"
+                        android:padding="15dp"
+                        android:text="point1" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    app:cardCornerRadius="30dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:background="@drawable/round_border"
+                        android:gravity="center"
+                        android:padding="15dp"
+                        android:text="point1" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </ScrollView>
+
+
+    <!--    <LinearLayout-->
+    <!--        android:id="@+id/linearLayout"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:orientation="vertical"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.5"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent">-->
+
+    <!--       -->
+
+    <!--        <com.google.android.material.card.MaterialCardView-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_margin="20dp"-->
+    <!--            app:cardCornerRadius="20dp">-->
+
+    <!--        </com.google.android.material.card.MaterialCardView>-->
+    <!--    </LinearLayout>-->
+
+
+    <!--    <ImageView-->
+    <!--        android:id="@+id/imageView2"-->
+    <!--        android:layout_width="406dp"-->
+    <!--        android:layout_height="348dp"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.0"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:srcCompat="@drawable/summarytitle" />-->
+
+    <!--    <ScrollView-->
+    <!--        android:layout_width="408dp"-->
+    <!--        android:layout_height="569dp"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:layout_constraintVertical_bias="1.0">-->
+
+    <!--        <LinearLayout-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:orientation="vertical">-->
+
+    <!--            <TextView-->
+    <!--                android:id="@+id/textView2"-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="match_parent"-->
+    <!--                android:gravity="center"-->
+    <!--                android:padding="10dp"-->
+    <!--                android:text="Cooking is the act of turning nature into the culture which has enabled the advent of the omnivorous human diet. The cultural wisdom of processing raw ingredients into delicious dishes is embodied in their cuisines. Recipes thus are the cultural capsules that encode elaborate cooking protocols for evoking sensory satiation as well as providing nourishment. As we stand on the verge of an epidemic of diet-linked disorders, it is eminently important to investigate the culinary correlates of dietary elements to probe their association with sensory responses as well as consequences for nutrition and health.  RecipeDB is a structured compilation of recipes, ingredients, and nutrition profiles interlinked with flavor profiles and health associations. The repertoire comprises of meticulous integration of over 1,18,000 recipes from cuisines across the globe (6 continents, 26 geo-cultural regions, and 74 countries), cooked using 268 processes (heat, cook, boil, simmer, bake, etc.), by blending over 23,500 ingredients from diverse categories, which are further linked to their flavor molecules (FlavorDB), nutritional profiles (USDA) and empirical records of disease associations obtained from Medline (DietRx). This resource is aimed at facilitating scientific explorations of the culinary space (recipe, ingredient, cooking processes, dietary styles, etc.) to taste attributes (flavor profile) and health (nutrition and disease associations) seeking for divergent applications."-->
+    <!--                android:textColor="#000000"-->
+    <!--                android:textSize="24sp" />-->
+    <!--        </LinearLayout>-->
+    <!--    </ScrollView>-->
 </androidx.constraintlayout.widget.ConstraintLayout>
