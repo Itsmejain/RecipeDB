@@ -36,6 +36,7 @@ public class NewHomeFragment extends Fragment {
 //    private ImageButton imageButtonSummary;
     CardView CardButton_summary;
     CardView CardButton_statistics;
+    CardView CardButton_recipeOfDay;
     ProgressDialog pDialog;
     LoadingDialogHandler loadingDialogHandler;
 
@@ -45,6 +46,9 @@ public class NewHomeFragment extends Fragment {
         View v = inflater.inflate(R.layout.newhomefragment, container, false);//old fragment
         CardButton_summary = v.findViewById(R.id.CardButton_summary);
         CardButton_statistics = v.findViewById(R.id.CardButton_statistics);
+        CardButton_recipeOfDay = v.findViewById(R.id.CardButton_recipeOfDay);
+
+
         CardButton_summary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,6 +71,15 @@ public class NewHomeFragment extends Fragment {
 
             }
         });
+
+        CardButton_recipeOfDay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(getContext(),RecipeDetailActivity.class);
+                startActivity(intent);
+            }
+        });
+
         BottomNavigationView navBar = getActivity().findViewById(R.id.bottom_navigation);
         navBar.setVisibility(View.GONE);
 

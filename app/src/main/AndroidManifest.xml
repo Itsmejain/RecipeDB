@@ -2,10 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.navigationdrawerdemo">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -14,18 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Navigationdrawerdemo">
         <activity
+            android:name=".RecipeDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".SummaryActivity"
             android:exported="false"
-            android:theme="@style/Theme.Navigationdrawerdemo.NoActionBar"/>
-
-        <service
-            android:name=".CredentialBackgroundService"
-            android:enabled="true"
-            android:exported="true" />
-
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyB6aL_2cfrzMXGeWmC_QIj2OExx74ecYks" />
+            android:theme="@style/Theme.Navigationdrawerdemo.NoActionBar" />
 
         <activity
             android:name=".MainActivity"
@@ -37,6 +27,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyB6aL_2cfrzMXGeWmC_QIj2OExx74ecYks" />
+
+        <service
+            android:name=".CredentialBackgroundService"
+            android:enabled="true"
+            android:exported="true" />
     </application>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

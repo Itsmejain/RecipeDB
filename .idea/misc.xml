@@ -38,6 +38,9 @@
         <entry key="..\:/Users/ShubhamJain/AndroidStudioProjects/RecipeDB/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
         <entry key="..\:/Users/ShubhamJain/AndroidStudioProjects/RecipeDB/app/src/main/res/mipmap-anydpi-v26/ic_launcher_rdb.xml" value="0.1" />
         <entry key="..\:/Users/ShubhamJain/AndroidStudioProjects/RecipeDB/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.114" />
+        <entry key="app/src/main/res/layout/activity_recipe_detail.xml" value="0.12681159420289856" />
+        <entry key="app/src/main/res/layout/fragment_recipe_detail.xml" value="0.12681159420289856" />
+        <entry key="app/src/main/res/layout/newhomefragment.xml" value="0.12681159420289856" />
       </map>
     </option>
   </component>
