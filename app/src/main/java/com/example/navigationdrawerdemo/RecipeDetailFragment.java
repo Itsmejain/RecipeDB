@@ -1,5 +1,6 @@
 package com.example.navigationdrawerdemo;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -33,6 +34,11 @@ import com.google.gson.JsonObject;
 public class RecipeDetailFragment extends Fragment {
     ImageView recipeImage;
     TextView recipeTitle;
+    TextView EditText_energykcal;
+    TextView EditText_fats;
+    TextView EditText_carbs;
+    TextView EditText_protein;
+
     private RecipeDetails recipeDetails;
     private JsonObject recipeOfTheDay;
     LoadingDialogHandler loadingDialogHandler;
@@ -46,6 +52,11 @@ public class RecipeDetailFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_recipe_detail, container, false);
         recipeImage = view.findViewById(R.id.recipeImage);
         recipeTitle = view.findViewById(R.id.recipeTitle);
+        EditText_energykcal = view.findViewById(R.id.EditText_energykcal);
+        EditText_fats = view.findViewById(R.id.EditText_fats);
+        EditText_carbs = view.findViewById(R.id.EditText_carbs);
+        EditText_protein = view.findViewById(R.id.EditText_protein);
+
         //RECIVE LOCAL BROADCAST
         initBroadCastReceiver();
 
@@ -78,6 +89,7 @@ public class RecipeDetailFragment extends Fragment {
         public void onReceive(Context context, Intent intent) {
             Log.d(Constants.TAG, "onReceive: LOCAL BROADCAST RECIEVED");
             recipeDetails = intent.getParcelableExtra("RECIPEOFTHEDAY");
+
             Log.d(Constants.TAG, "onReceive: MyBroadCastReceiver "+recipeDetails.getImg_url());
             updateDataOnUI(recipeDetails);
 
@@ -89,8 +101,13 @@ public class RecipeDetailFragment extends Fragment {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private void updateDataOnUI(RecipeDetails recipeDetails){
         recipeTitle.setText(recipeDetails.getRecipe_title());
+        EditText_energykcal.setText(EditText_energykcal.getText() + " " + recipeDetails.getEnergykcal());
+        EditText_fats.setText(EditText_fats.getText() + " " + recipeDetails.getTotallipidfat());
+        EditText_carbs.setText(EditText_carbs.getText() + " " + recipeDetails.getCarbohydratebydifference());
+        EditText_protein.setText(EditText_protein.getText() + " " + recipeDetails.getProtein());
         if(getActivity()!=null ){
                 Glide.with(getActivity())
                         .load(recipeDetails.getImg_url())

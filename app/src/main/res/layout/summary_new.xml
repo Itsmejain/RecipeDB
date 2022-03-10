@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".RecipeDetailFragment">
+    >
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
@@ -74,7 +74,8 @@
                         android:id="@+id/recipeTitle"
                         android:textAppearance="@style/TextAppearance.AppCompat.Title"
                         android:textColor="@color/white"
-                        android:text="Garlic Bread White Sauce Pasta"/>
+                        android:textSize="35dp"
+                        android:text="SUMMARY"/>
 
                 </LinearLayout>
 
@@ -95,134 +96,11 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <androidx.cardview.widget.CardView
+
+
+                <View
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:background="@color/white"
-                    app:cardCornerRadius="2dp"
-                    app:cardElevation="2dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:paddingLeft="15dp"
-                        android:paddingRight="15dp"
-                        android:paddingBottom="15dp">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="?attr/actionBarSize"
-                            android:gravity="center_vertical"
-                            android:text="Macros"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                            android:textColor="@color/black"/>
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:minHeight="40dp"
-                            android:orientation="horizontal">
-
-                            <ImageButton
-                                android:layout_width="wrap_content"
-                                android:layout_height="40dp"
-                                android:background="@android:color/transparent"
-                                app:tint="@color/grey_2"
-                                android:src="@drawable/ic_baseline_egg_24"/>
-                            <View
-                                android:layout_width="2dp"
-                                android:layout_height="0dp"/>
-
-                            <TextView
-                                android:id="@+id/EditText_energykcal"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center_vertical"
-                                android:minHeight="40dp"
-                                android:text="Energy (Kcal) :"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:minHeight="40dp"
-                            android:orientation="horizontal">
-
-                            <ImageButton
-                                android:layout_width="wrap_content"
-                                android:layout_height="40dp"
-                                android:background="@android:color/transparent"
-                                app:tint="@color/grey_2"
-                                android:src="@drawable/ic_baseline_egg_24"/>
-                            <View
-                                android:layout_width="2dp"
-                                android:layout_height="0dp"/>
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center_vertical"
-                                android:minHeight="40dp"
-                                android:id="@+id/EditText_fats"
-                                android:text="Total fats (g) :"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"/>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:minHeight="40dp"
-                            android:orientation="horizontal">
-
-                            <ImageButton
-                                android:layout_width="wrap_content"
-                                android:layout_height="40dp"
-                                android:background="@android:color/transparent"
-                                app:tint="@color/grey_2"
-                                android:src="@drawable/ic_baseline_egg_24"/>
-                            <View
-                                android:layout_width="2dp"
-                                android:layout_height="0dp"/>
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center_vertical"
-                                android:minHeight="40dp"
-                                android:text="Carbohydrates (g) :"
-                                android:id="@+id/EditText_carbs"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"/>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:minHeight="40dp"
-                            android:orientation="horizontal">
-
-                            <ImageButton
-                                android:layout_width="wrap_content"
-                                android:layout_height="40dp"
-                                android:background="@android:color/transparent"
-                                app:tint="@color/grey_2"
-                                android:src="@drawable/ic_baseline_egg_24"/>
-                            <View
-                                android:layout_width="2dp"
-                                android:layout_height="0dp"/>
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center_vertical"
-                                android:minHeight="40dp"
-                                android:text="Protein (g) :"
-                                android:id="@+id/EditText_protein"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"/>
-                        </LinearLayout>
-
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
+                    android:layout_height="15dp"/>
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="15dp"/>
@@ -249,11 +127,9 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="?attr/actionBarSize"
-
-                            android:drawableEnd="@drawable/ic_baseline_arrow_right_24"
                             android:gravity="center_vertical"
 
-                            android:text="Recipe Overview "
+                            android:text="POINT1 "
                             android:textAppearance="@style/TextAppearance.AppCompat.Title"
                             android:textColor="@color/black" />
 
@@ -291,7 +167,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="?attr/actionBarSize"
                             android:gravity="center_vertical"
-                            android:text="Ingredients"
+                            android:text="POINT2"
                             android:drawableEnd="@drawable/ic_baseline_arrow_right_24"
                             android:textAppearance="@style/TextAppearance.AppCompat.Title"
                             android:textColor="@color/black"/>
@@ -330,7 +206,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="?attr/actionBarSize"
                             android:gravity="center_vertical"
-                            android:text="Processes and Utensils"
+                            android:text="POINT3"
                             android:drawableEnd="@drawable/ic_baseline_arrow_right_24"
                             android:textAppearance="@style/TextAppearance.AppCompat.Title"
                             android:textColor="@color/black"/>
@@ -369,7 +245,125 @@
                             android:layout_width="match_parent"
                             android:layout_height="?attr/actionBarSize"
                             android:gravity="center_vertical"
-                            android:text="Instructions"
+                            android:text="POINT4"
+                            android:drawableEnd="@drawable/ic_baseline_arrow_right_24"
+
+                            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                            android:textColor="@color/black"/>
+
+                        <!--                        <TextView-->
+                        <!--                            android:layout_width="match_parent"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:gravity="center_vertical"-->
+                        <!--                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"-->
+                        <!--                            android:text="@string/dummy_text"/>-->
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"/>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:background="@color/white"
+                    app:cardCornerRadius="2dp"
+                    android:elevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingBottom="15dp"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="?attr/actionBarSize"
+                            android:gravity="center_vertical"
+                            android:text="POINT2"
+                            android:drawableEnd="@drawable/ic_baseline_arrow_right_24"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                            android:textColor="@color/black"/>
+
+                        <!--                        <TextView-->
+                        <!--                            android:layout_width="match_parent"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:gravity="center_vertical"-->
+                        <!--                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"-->
+                        <!--                            android:text="@string/dummy_text"/>-->
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"/>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:background="@color/white"
+                    app:cardCornerRadius="2dp"
+                    android:elevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingBottom="15dp"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="?attr/actionBarSize"
+                            android:gravity="center_vertical"
+                            android:text="POINT3"
+                            android:drawableEnd="@drawable/ic_baseline_arrow_right_24"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                            android:textColor="@color/black"/>
+
+                        <!--                        <TextView-->
+                        <!--                            android:layout_width="match_parent"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:gravity="center_vertical"-->
+                        <!--                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"-->
+                        <!--                            android:text="@string/dummy_text"/>-->
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"/>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:background="@color/white"
+                    app:cardCornerRadius="2dp"
+                    android:elevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingBottom="15dp"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="?attr/actionBarSize"
+                            android:gravity="center_vertical"
+                            android:text="POINT4"
                             android:drawableEnd="@drawable/ic_baseline_arrow_right_24"
 
                             android:textAppearance="@style/TextAppearance.AppCompat.Title"
