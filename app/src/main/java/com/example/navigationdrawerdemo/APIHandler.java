@@ -141,12 +141,12 @@ public class APIHandler {
                 Log.d(Constants.TAG, "response.message: "+response.message());
                 Log.d(Constants.TAG, "response.headers: "+response.headers());
                 Log.d(Constants.TAG, "response.raw: "+response.raw());
-
+                Log.d(Constants.TAG, "onReceive: RECIPE DETAIL RESPONSE-----------------------------------------------"+recipeOfTheDay);
                 Gson gson = new Gson();
                 RecipeDetails recipeDetails = gson.fromJson(recipeOfTheDay,RecipeDetails.class);
 
                 Intent intent = new Intent("com.example.navigationdrawerdemo");
-                intent.putExtra("RECIPEOFTHEDAY",recipeDetails);
+                intent.putExtra("RECIPEOFTHEDAY",recipeDetails);;
                 LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
 //                pDialog.hide();
                 loadingDialogHandler.stopAlertDialog();

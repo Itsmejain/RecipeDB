@@ -90,7 +90,10 @@ public class NewHomeFragment extends Fragment {
        CardButton_recipeOfDay.setOnClickListener(new View.OnClickListener() {
                                                       @Override
                                                       public void onClick(View view) {
-                                                          Intent intent= new Intent(getContext(),RecipeDetailActivity.class);
+//                                                          Bundle bundle = new Bundle();
+//                                                          bundle.putString("REQUEST_TYPE","RECIPEOFTHEDAY");
+                                                          Intent intent= new Intent(getActivity(),RecipeDetailActivity.class);
+                                                          intent.putExtra("REQUEST_TYPE","RECIPEOFTHEDAY");
                                                           startActivity(intent);
 
                                                       }
