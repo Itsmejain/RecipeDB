@@ -24,6 +24,6 @@ public class RecipeDetailActivity extends AppCompatActivity {
             bundle.putString("REQUEST_TYPE","NORMAL_REQUEST");
         }
         recipeDetailFragment.setArguments(bundle);
-        getSupportFragmentManager().beginTransaction().replace(R.id.container,recipeDetailFragment).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.container,recipeDetailFragment).addToBackStack("RDB").commit();
     }
 }

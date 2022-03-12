@@ -12,6 +12,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
@@ -38,6 +39,8 @@ public class RecipeDetailFragment extends Fragment {
     TextView EditText_fats;
     TextView EditText_carbs;
     TextView EditText_protein;
+    CardView recipeOverview;
+    CardView recipeIngredients;
 
     private RecipeDetails recipeDetails;
     private JsonObject recipeOfTheDay;
@@ -56,6 +59,9 @@ public class RecipeDetailFragment extends Fragment {
         EditText_fats = view.findViewById(R.id.EditText_fats);
         EditText_carbs = view.findViewById(R.id.EditText_carbs);
         EditText_protein = view.findViewById(R.id.EditText_protein);
+        recipeOverview = view.findViewById(R.id.recipeOverview);
+        recipeIngredients = view.findViewById(R.id.recipeIngredients);
+
 
         //RECIVE LOCAL BROADCAST
         initBroadCastReceiver();
@@ -69,12 +75,70 @@ public class RecipeDetailFragment extends Fragment {
             recipeOfTheDay = apiHandler.recipeOfTheDay(loadingDialogHandler);
         }
 
-
-
+        recipeOverview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                recipeOverviewOnClickFuntion();
+            }
+        });
+        recipeIngredients.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                recipeIngredientsOnClickFuntion();
+            }
+        });
         return view;
     }
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+    private void recipeOverviewOnClickFuntion(){
 
 
+//        Log.d(Constants.TAG, "recipeOverviewOnClickFuntion: checking recipeDetails respone from recipeOverview"+recipeDetails.getImg_url());
+        RecipeDetail_RecipeOverview_Fragment recipeDetail_recipeOverview_fragment = new RecipeDetail_RecipeOverview_Fragment();
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("RecipeDetailsJson",recipeDetails);
+//        String continent = recipeDetails.getContinent();
+//        String subregion = recipeDetails.getSub_region();
+//        String region = recipeDetails.getRegion();
+//        String cuisine = "Continent : "+continent+"\n"
+//                +"Region : "+region+"\n"
+//                +"Sub Region : "+subregion;
+//        bundle.putString("Cuisine",cuisine);
+
+        recipeDetail_recipeOverview_fragment.setArguments(bundle);
+        getActivity()
+                .getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.container,recipeDetail_recipeOverview_fragment)
+                .addToBackStack("RDB")
+                .commit();
+    }
+    //////////////////////////////////////////////////////////////////////////////////////////////////////
+    private void recipeIngredientsOnClickFuntion(){
+
+
+//        Log.d(Constants.TAG, "recipeOverviewOnClickFuntion: checking recipeDetails respone from recipeOverview"+recipeDetails.getImg_url());
+        RecipeDetail_Ingredients_Process_Utensils recipeDetail_ingredients_process_utensils = new RecipeDetail_Ingredients_Process_Utensils();
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("RecipeDetailsJson",recipeDetails);
+//        String continent = recipeDetails.getContinent();
+//        String subregion = recipeDetails.getSub_region();
+//        String region = recipeDetails.getRegion();
+//        String cuisine = "Continent : "+continent+"\n"
+//                +"Region : "+region+"\n"
+//                +"Sub Region : "+subregion;
+//        bundle.putString("Cuisine",cuisine);
+
+        recipeDetail_ingredients_process_utensils.setArguments(bundle);
+        getActivity()
+                .getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.container,recipeDetail_ingredients_process_utensils)
+                .addToBackStack("RDB")
+                .commit();
+    }
+
+    //////////////////////////////////////////////////////////////
     private void initBroadCastReceiver() {
         LocalBroadcastManager manager = LocalBroadcastManager.getInstance(getContext());
         MyBroadCastReceiver receiver = new MyBroadCastReceiver();
@@ -104,10 +168,15 @@ public class RecipeDetailFragment extends Fragment {
     @SuppressLint("SetTextI18n")
     private void updateDataOnUI(RecipeDetails recipeDetails){
         recipeTitle.setText(recipeDetails.getRecipe_title());
-        EditText_energykcal.setText(EditText_energykcal.getText() + " " + recipeDetails.getEnergykcal());
-        EditText_fats.setText(EditText_fats.getText() + " " + recipeDetails.getTotallipidfat());
-        EditText_carbs.setText(EditText_carbs.getText() + " " + recipeDetails.getCarbohydratebydifference());
-        EditText_protein.setText(EditText_protein.getText() + " " + recipeDetails.getProtein());
+        String energyKcal  = "Energy (kCal) : ";
+        String fats  = "Total fats (g) : ";
+        String carbs = "Carbohydrates (g) : ";
+        String  protein  = "Protein (g) : ";
+
+        EditText_energykcal.setText(energyKcal + " " + recipeDetails.getEnergykcal());
+        EditText_fats.setText(fats + " " + recipeDetails.getTotallipidfat());
+        EditText_carbs.setText(carbs + " " + recipeDetails.getCarbohydratebydifference());
+        EditText_protein.setText(protein + " " + recipeDetails.getProtein());
         if(getActivity()!=null ){
                 Glide.with(getActivity())
                         .load(recipeDetails.getImg_url())
