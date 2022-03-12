@@ -13,5 +13,9 @@ Or Hami Sharafi, one of the most dedicated Persian food ambassadors, who shares 
 What is common among them all is that they were born out of a passion for food. Without a doubt, the world is a better place now they are in it – and definitely a more delicious one.
 
 Now packed with stunning photography and detailed recipes, food blogs have come a long way over the past decade or so to meet the exacting demands of virtual food lovers.</string>
+    <string-array name="rangeSliderVals">
+        <item>20</item>
+        <item>70</item>
+    </string-array>
 
 </resources>
