@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".RecipeDetailFragment">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/wallpaper_black_portrait">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="256dp"
+            android:fitsSystemWindows="true"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                android:id="@+id/collapsing_toolbar"
+                app:contentScrim="?attr/colorPrimary"
+                app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Title"
+                app:layout_scrollFlags="scroll|enterAlwaysCollapsed"
+                app:titleEnabled="false">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fitsSystemWindows="true"
+                    android:scaleType="centerCrop"
+                    android:id="@+id/recipeImage"
+                    app:layout_collapseMode="parallax"
+                    android:src="@drawable/food"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/overlay_dark_40"/>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.appcompat.widget.Toolbar
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        android:id="@+id/toolbar"
+                        app:contentInsetStartWithNavigation="0dp"
+                        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <!--                    <ImageView-->
+                    <!--                        android:layout_width="80dp"-->
+                    <!--                        android:layout_height="80dp"-->
+                    <!--                        android:src="@drawable/ic_baseline_image_24"-->
+                    <!--                        app:tint="@color/white"/>-->
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:id="@+id/recipeTitle"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                        android:textColor="@color/white"
+                        android:text="Garlic Bread White Sauce Pasta"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/recipeOverview"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                        android:textColor="@color/white"
+
+                        android:text="Recipe Overview"/>
+
+
+                </LinearLayout>
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/nexted_scrollview"
+            android:layout_marginTop="-35dp"
+            android:clipToPadding="false"
+            android:scrollbars="none"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@color/white"
+                    app:cardCornerRadius="2dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:paddingBottom="15dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="?attr/actionBarSize"
+                            android:gravity="center_vertical"
+                            android:text="Cuisine"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                            android:textColor="@color/black"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="40dp"
+                            android:orientation="horizontal">
+
+                            <ImageButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="40dp"
+                                android:background="@android:color/transparent"
+                                app:tint="@color/grey_2"
+                                android:src="@drawable/ic_baseline_location_on_24"/>
+                            <View
+                                android:layout_width="2dp"
+                                android:layout_height="0dp"/>
+
+                            <TextView
+                                android:id="@+id/EditText_cuisine"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:minHeight="40dp"
+                                android:text=""
+                                android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+                        </LinearLayout>
+
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:minHeight="40dp"-->
+<!--                            android:orientation="horizontal">-->
+
+<!--                            <ImageButton-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="40dp"-->
+<!--                                android:background="@android:color/transparent"-->
+<!--                                app:tint="@color/grey_2"-->
+<!--                                android:src="@drawable/ic_baseline_egg_24"/>-->
+<!--                            <View-->
+<!--                                android:layout_width="2dp"-->
+<!--                                android:layout_height="0dp"/>-->
+<!--                            <TextView-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:gravity="center_vertical"-->
+<!--                                android:minHeight="40dp"-->
+<!--                                android:id="@+id/EditText_fats"-->
+<!--                                android:text="Total fats (g) :"-->
+<!--                                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"/>-->
+<!--                        </LinearLayout>-->
+
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:minHeight="40dp"-->
+<!--                            android:orientation="horizontal">-->
+
+<!--                            <ImageButton-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="40dp"-->
+<!--                                android:background="@android:color/transparent"-->
+<!--                                app:tint="@color/grey_2"-->
+<!--                                android:src="@drawable/ic_baseline_egg_24"/>-->
+<!--                            <View-->
+<!--                                android:layout_width="2dp"-->
+<!--                                android:layout_height="0dp"/>-->
+<!--                            <TextView-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:gravity="center_vertical"-->
+<!--                                android:minHeight="40dp"-->
+<!--                                android:text="Carbohydrates (g) :"-->
+<!--                                android:id="@+id/EditText_carbs"-->
+<!--                                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"/>-->
+<!--                        </LinearLayout>-->
+
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:minHeight="40dp"-->
+<!--                            android:orientation="horizontal">-->
+
+<!--                            <ImageButton-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="40dp"-->
+<!--                                android:background="@android:color/transparent"-->
+<!--                                app:tint="@color/grey_2"-->
+<!--                                android:src="@drawable/ic_baseline_egg_24"/>-->
+<!--                            <View-->
+<!--                                android:layout_width="2dp"-->
+<!--                                android:layout_height="0dp"/>-->
+<!--                            <TextView-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:gravity="center_vertical"-->
+<!--                                android:minHeight="40dp"-->
+<!--                                android:text="Protein (g) :"-->
+<!--                                android:id="@+id/EditText_protein"-->
+<!--                                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"/>-->
+<!--                        </LinearLayout>-->
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"/>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@color/white"
+                    app:cardCornerRadius="2dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:paddingBottom="15dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="?attr/actionBarSize"
+                            android:gravity="center_vertical"
+                            android:text="Source"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                            android:textColor="@color/black"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="40dp"
+                            android:orientation="horizontal">
+
+                            <ImageButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="40dp"
+                                android:background="@android:color/transparent"
+                                app:tint="@color/grey_2"
+                                android:src="@drawable/ic_baseline_search_24"/>
+                            <View
+                                android:layout_width="2dp"
+                                android:layout_height="0dp"/>
+
+                            <TextView
+                                android:id="@+id/EditText_source"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:minHeight="40dp"
+                                android:text=""
+                                android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+                        </LinearLayout>
+
+                        <!--                        <LinearLayout-->
+                        <!--                            android:layout_width="match_parent"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:minHeight="40dp"-->
+                        <!--                            android:orientation="horizontal">-->
+
+                        <!--                            <ImageButton-->
+                        <!--                                android:layout_width="wrap_content"-->
+                        <!--                                android:layout_height="40dp"-->
+                        <!--                                android:background="@android:color/transparent"-->
+                        <!--                                app:tint="@color/grey_2"-->
+                        <!--                                android:src="@drawable/ic_baseline_egg_24"/>-->
+                        <!--                            <View-->
+                        <!--                                android:layout_width="2dp"-->
+                        <!--                                android:layout_height="0dp"/>-->
+                        <!--                            <TextView-->
+                        <!--                                android:layout_width="match_parent"-->
+                        <!--                                android:layout_height="wrap_content"-->
+                        <!--                                android:gravity="center_vertical"-->
+                        <!--                                android:minHeight="40dp"-->
+                        <!--                                android:id="@+id/EditText_fats"-->
+                        <!--                                android:text="Total fats (g) :"-->
+                        <!--                                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"/>-->
+                        <!--                        </LinearLayout>-->
+
+                        <!--                        <LinearLayout-->
+                        <!--                            android:layout_width="match_parent"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:minHeight="40dp"-->
+                        <!--                            android:orientation="horizontal">-->
+
+                        <!--                            <ImageButton-->
+                        <!--                                android:layout_width="wrap_content"-->
+                        <!--                                android:layout_height="40dp"-->
+                        <!--                                android:background="@android:color/transparent"-->
+                        <!--                                app:tint="@color/grey_2"-->
+                        <!--                                android:src="@drawable/ic_baseline_egg_24"/>-->
+                        <!--                            <View-->
+                        <!--                                android:layout_width="2dp"-->
+                        <!--                                android:layout_height="0dp"/>-->
+                        <!--                            <TextView-->
+                        <!--                                android:layout_width="match_parent"-->
+                        <!--                                android:layout_height="wrap_content"-->
+                        <!--                                android:gravity="center_vertical"-->
+                        <!--                                android:minHeight="40dp"-->
+                        <!--                                android:text="Carbohydrates (g) :"-->
+                        <!--                                android:id="@+id/EditText_carbs"-->
+                        <!--                                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"/>-->
+                        <!--                        </LinearLayout>-->
+
+                        <!--                        <LinearLayout-->
+                        <!--                            android:layout_width="match_parent"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:minHeight="40dp"-->
+                        <!--                            android:orientation="horizontal">-->
+
+                        <!--                            <ImageButton-->
+                        <!--                                android:layout_width="wrap_content"-->
+                        <!--                                android:layout_height="40dp"-->
+                        <!--                                android:background="@android:color/transparent"-->
+                        <!--                                app:tint="@color/grey_2"-->
+                        <!--                                android:src="@drawable/ic_baseline_egg_24"/>-->
+                        <!--                            <View-->
+                        <!--                                android:layout_width="2dp"-->
+                        <!--                                android:layout_height="0dp"/>-->
+                        <!--                            <TextView-->
+                        <!--                                android:layout_width="match_parent"-->
+                        <!--                                android:layout_height="wrap_content"-->
+                        <!--                                android:gravity="center_vertical"-->
+                        <!--                                android:minHeight="40dp"-->
+                        <!--                                android:text="Protein (g) :"-->
+                        <!--                                android:id="@+id/EditText_protein"-->
+                        <!--                                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"/>-->
+                        <!--                        </LinearLayout>-->
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+<!--                <View-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="15dp"/>-->
+
+<!--                <androidx.cardview.widget.CardView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginRight="15dp"-->
+<!--                    android:layout_marginLeft="15dp"-->
+<!--                    android:background="@color/white"-->
+<!--                    app:cardCornerRadius="2dp"-->
+<!--                    android:elevation="2dp"-->
+<!--                    android:layout_gravity="center">-->
+
+<!--&lt;!&ndash;                    <LinearLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:orientation="vertical"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:paddingBottom="15dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:paddingLeft="15dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:paddingRight="15dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                        >&ndash;&gt;-->
+
+<!--&lt;!&ndash;                        <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_height="?attr/actionBarSize"&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            android:drawableEnd="@drawable/ic_baseline_arrow_right_24"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:gravity="center_vertical"&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            android:text="Recipe Overview "&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:textAppearance="@style/TextAppearance.AppCompat.Title"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:textColor="@color/black" />&ndash;&gt;-->
+
+<!--&lt;!&ndash;                        &lt;!&ndash;                        <TextView&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                            android:layout_width="match_parent"&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                            android:layout_height="wrap_content"&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                            android:gravity="center_vertical"&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                            android:text="@string/dummy_text"/>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                    </LinearLayout>&ndash;&gt;-->
+
+
+<!--                </androidx.cardview.widget.CardView>-->
+<!--                <View-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="15dp"/>-->
+<!--                <androidx.cardview.widget.CardView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginRight="15dp"-->
+<!--                    android:layout_marginLeft="15dp"-->
+<!--                    android:background="@color/white"-->
+<!--                    app:cardCornerRadius="2dp"-->
+<!--                    android:elevation="2dp">-->
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:orientation="vertical"-->
+<!--                        android:paddingBottom="15dp"-->
+<!--                        android:paddingLeft="15dp"-->
+<!--                        android:paddingRight="15dp">-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="?attr/actionBarSize"-->
+<!--                            android:gravity="center_vertical"-->
+<!--                            android:text="Ingredients"-->
+<!--                            android:drawableEnd="@drawable/ic_baseline_arrow_right_24"-->
+<!--                            android:textAppearance="@style/TextAppearance.AppCompat.Title"-->
+<!--                            android:textColor="@color/black"/>-->
+
+<!--                        &lt;!&ndash;                        <TextView&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:layout_width="match_parent"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:gravity="center_vertical"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:text="@string/dummy_text"/>&ndash;&gt;-->
+<!--                    </LinearLayout>-->
+
+
+<!--                </androidx.cardview.widget.CardView>-->
+<!--                <View-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="15dp"/>-->
+<!--                <androidx.cardview.widget.CardView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginRight="15dp"-->
+<!--                    android:layout_marginLeft="15dp"-->
+<!--                    android:background="@color/white"-->
+<!--                    app:cardCornerRadius="2dp"-->
+<!--                    android:elevation="2dp">-->
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:orientation="vertical"-->
+<!--                        android:paddingBottom="15dp"-->
+<!--                        android:paddingLeft="15dp"-->
+<!--                        android:paddingRight="15dp">-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="?attr/actionBarSize"-->
+<!--                            android:gravity="center_vertical"-->
+<!--                            android:text="Processes and Utensils"-->
+<!--                            android:drawableEnd="@drawable/ic_baseline_arrow_right_24"-->
+<!--                            android:textAppearance="@style/TextAppearance.AppCompat.Title"-->
+<!--                            android:textColor="@color/black"/>-->
+
+<!--                        &lt;!&ndash;                        <TextView&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:layout_width="match_parent"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:gravity="center_vertical"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:text="@string/dummy_text"/>&ndash;&gt;-->
+<!--                    </LinearLayout>-->
+
+
+<!--                </androidx.cardview.widget.CardView>-->
+<!--                <View-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="15dp"/>-->
+<!--                <androidx.cardview.widget.CardView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginRight="15dp"-->
+<!--                    android:layout_marginLeft="15dp"-->
+<!--                    android:background="@color/white"-->
+<!--                    app:cardCornerRadius="2dp"-->
+<!--                    android:elevation="2dp">-->
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:orientation="vertical"-->
+<!--                        android:paddingBottom="15dp"-->
+<!--                        android:paddingLeft="15dp"-->
+<!--                        android:paddingRight="15dp">-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="?attr/actionBarSize"-->
+<!--                            android:gravity="center_vertical"-->
+<!--                            android:text="Instructions"-->
+<!--                            android:drawableEnd="@drawable/ic_baseline_arrow_right_24"-->
+
+<!--                            android:textAppearance="@style/TextAppearance.AppCompat.Title"-->
+<!--                            android:textColor="@color/black"/>-->
+
+<!--                        &lt;!&ndash;                        <TextView&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:layout_width="match_parent"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:gravity="center_vertical"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:text="@string/dummy_text"/>&ndash;&gt;-->
+<!--                    </LinearLayout>-->
+
+
+<!--                </androidx.cardview.widget.CardView>-->
+<!--                <View-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="15dp"/>-->
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</FrameLayout>
