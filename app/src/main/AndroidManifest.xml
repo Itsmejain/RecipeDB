@@ -11,7 +11,8 @@
         android:theme="@style/Theme.Navigationdrawerdemo">
         <activity
             android:name=".activities.RecipeDetailActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.Navigationdrawerdemo.NoActionBar"/>
         <activity
             android:name=".activities.SummaryActivity"
 
