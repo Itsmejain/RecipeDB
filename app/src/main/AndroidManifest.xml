@@ -10,16 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Navigationdrawerdemo">
         <activity
-            android:name=".RecipeDetailActivity"
+            android:name=".activities.RecipeDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".SummaryActivity"
+            android:name=".activities.SummaryActivity"
 
             android:exported="true"
          />
 
         <service
-            android:name=".CredentialBackgroundService"
+            android:name=".util.CredentialBackgroundService"
             android:enabled="true"
             android:exported="true" />
 
@@ -29,7 +29,7 @@
 
 
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.Navigationdrawerdemo.NoActionBar">
             <intent-filter>
