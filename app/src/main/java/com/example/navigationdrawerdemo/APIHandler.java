@@ -147,6 +147,7 @@ public class APIHandler {
 
                 Intent intent = new Intent("com.example.navigationdrawerdemo");
                 intent.putExtra("RECIPEOFTHEDAY",recipeDetails);;
+
                 LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
 //                pDialog.hide();
                 loadingDialogHandler.stopAlertDialog();

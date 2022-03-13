@@ -23,6 +23,7 @@
         <!--            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"-->
         <!--            >-->
 
+
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
@@ -35,12 +36,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
-        <!--        </com.google.android.material.appbar.AppBarLayout>-->
+<!--                </com.google.android.material.appbar.AppBarLayout>-->
 
         <FrameLayout
             android:id="@+id/fragment_container"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:elevation="5dp"
             app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"

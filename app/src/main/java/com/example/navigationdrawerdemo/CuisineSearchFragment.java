@@ -21,7 +21,31 @@ import android.widget.Toast;
 public class CuisineSearchFragment extends Fragment {
 
     TextView textView ;
-    String[] regions = {"SEA","SA","NA","PA"};
+    String[] regions = {"Australian",
+            "Belgian",
+            "Canadian",
+            "Caribbean",
+            "Central American",
+            "Chinese and Mongolian",
+            "Deutschland",
+            "Eastern European",
+            "French",
+            "Greek",
+            "Indian Subcontinent",
+            "Irish",
+            "Italian",
+            "Japanese",
+            "Korean",
+            "Mexican",
+            "Middle Eastern",
+            "Northern Africa",
+            "Rest Africa",
+            "Scandinavian",
+            "South American",
+            "Southeast Asian",
+            "Spanish and Portuguese",
+            "Thai",
+            "UK"};
     AutoCompleteTextView autoCompleteTextView;
     ArrayAdapter<String> adapterItems;
     @Override
@@ -38,7 +62,9 @@ public class CuisineSearchFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 String item = adapterView.getItemAtPosition(i).toString();
-                Toast.makeText(getContext(), "selected option: "+i, Toast.LENGTH_SHORT).show();
+                String regionVal = autoCompleteTextView.getText().toString();
+                Toast.makeText(getContext(), "region: "+regionVal, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getContext(), "selected option: "+i, Toast.LENGTH_SHORT).show();
             }
         });
 //        SpannableStringBuilder ssb = new SpannableStringBuilder();
