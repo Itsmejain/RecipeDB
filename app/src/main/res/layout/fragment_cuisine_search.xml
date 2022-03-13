@@ -52,11 +52,12 @@
         android:layout_marginEnd="25dp"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:hint="Region">
+
         <AutoCompleteTextView
+            android:completionThreshold="2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/regionEditBox"
-            android:inputType="none"/>
+            android:id="@+id/regionEditBox"/>
 
 <!--        <com.google.android.material.textfield.TextInputEditText-->
 <!--            android:layout_width="match_parent"-->
