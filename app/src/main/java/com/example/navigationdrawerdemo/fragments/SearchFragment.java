@@ -28,6 +28,7 @@ public class SearchFragment extends Fragment {
 
         tabLayout.setupWithViewPager(viewPager);
         ViewPageAdapter viewPageAdapter = new ViewPageAdapter(getActivity().getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+//        viewPageAdapter.addFragments(new CuisineSearchFragment(),"Cuisine Search");
         viewPageAdapter.addFragments(new CuisineSearchFragment(),"Cuisine Search");
         viewPageAdapter.addFragments(new IngredientSearchFragment(),"Ingredient Search");
         viewPageAdapter.addFragments(new CategorySearchFragment(),"Category Search");

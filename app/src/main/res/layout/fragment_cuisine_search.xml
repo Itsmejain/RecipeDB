@@ -73,10 +73,16 @@
         android:layout_marginStart="25dp"
         android:layout_marginTop="340dp"
         android:layout_marginEnd="25dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:hint="Country">
 
-        <com.google.android.material.textfield.TextInputEditText
+<!--        <com.google.android.material.textfield.TextInputEditText-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/countryEditBox"/>-->
+
+        <AutoCompleteTextView
+            android:completionThreshold="2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/countryEditBox"/>
