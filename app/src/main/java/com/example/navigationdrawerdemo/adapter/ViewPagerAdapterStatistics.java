@@ -8,14 +8,14 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-public class ViewPageAdapter extends FragmentPagerAdapter {
-
+public class ViewPagerAdapterStatistics extends FragmentPagerAdapter {
     private final ArrayList<Fragment> fragmentArrayList=new ArrayList<>();
     private final ArrayList<String> fragmentTitle = new ArrayList<>();
 
-    public ViewPageAdapter(@NonNull FragmentManager fm, int behavior) {
+    public ViewPagerAdapterStatistics(@NonNull FragmentManager fm, int behavior) {
         super(fm, behavior);
     }
+
 
     @NonNull
     @Override
