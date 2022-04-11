@@ -124,4 +124,13 @@ public class Constants {
                                                 "Nuts and Seeds","Seafood","Plant Derivative","Beverage","Fish",
                                                 "Legume","Herb","Beverage-Alcoholic","Bakery","Cereal","Additive",
                                                 "Spice","Condiment","Dairy","Fruit","Dish","Meat"};
+
+    public static int[] PROCESS_COUNTS = {414241,16150,18083,20231,21705,21856,22296,24218,26433,27615,29616,30394,32527,38885,39045,43394,50039,50175,53890,55697,83579,94149,102841,188517};
+    public static String[] PROCESS_NAMES = {"Other","Season","Set","Pour","Drain","Combine","Cut","Preheat","Cool","Sprinkle",
+                                            "Stirring","Bake","Broil","Simmer","Boil","Serve","Remove","Cover","Mix",
+                                            "Place","Stir","Cook","Heat","Add"};
+    public static int[] UTENSIL_COUNTS = {71859,680,1088,1131,1935,2063,2347,2691,3982,4391,4399,4477,4607,5257,5260,7547,9139,13944,15243,21870,23596,35801,55803,68616};
+    public static String[] UTENSIL_NAMES = {"Bowl","Sieve","Platter","Microwave","Board","Whisk","Cooker","Spoon",
+                                            "Spatula","Container","Mixer","Other","Tablespoon","Plate","Knife","Fork",
+                                            "Processor","Sheet","Dish","Cup","Saucepan","Pot","Skillet","Oven","Pan"};
 }
