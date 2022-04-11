@@ -1,5 +1,6 @@
 package com.example.navigationdrawerdemo.fragments;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,14 +10,82 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.navigationdrawerdemo.R;
+import com.example.navigationdrawerdemo.util.Constants;
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
+
+import java.util.ArrayList;
 
 
 public class ProcessesStats extends Fragment {
 
+    int [] yData = Constants.PROCESS_COUNTS;
+    String [] xData = Constants.PROCESS_NAMES;
+    PieChart pieChart;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_processes_stats, container, false);
+        View v = inflater.inflate(R.layout.fragment_processes_stats, container, false);
+        pieChart = v.findViewById(R.id.processesPie);
+        pieChart.getDescription().setText("Unique Process across recipes");
+        pieChart.setRotation(1f);
+        addDataSet();
+        return v;
+    }
+
+    void addDataSet(){
+        ArrayList<PieEntry> yEntries = new ArrayList<>();
+        ArrayList<String> xEntries = new ArrayList<>();
+
+        for(int i=0;i<yData.length;i++){
+            yEntries.add(new PieEntry(yData[i],i));
+        }
+
+        for(int i=0;i<xData.length;i++){
+            xEntries.add(xData[i]);
+        }
+        PieDataSet pieDataSet = new PieDataSet(yEntries,"Count of Processes");
+        pieDataSet.setSliceSpace(2f);
+        pieDataSet.setValueTextSize(12f);
+
+        ArrayList<Integer> colors = new ArrayList<>();
+        colors.add(Color.BLUE);
+        colors.add(Color.RED);
+        colors.add(Color.GRAY);
+        colors.add(Color.GREEN);
+        colors.add(Color.MAGENTA);
+        colors.add(Color.CYAN);
+        colors.add(Color.YELLOW);
+        colors.add(Color.BLUE);
+        colors.add(Color.RED);
+        colors.add(Color.GRAY);
+        colors.add(Color.GREEN);
+        colors.add(Color.MAGENTA);
+        colors.add(Color.CYAN);
+        colors.add(Color.YELLOW);
+        colors.add(Color.BLUE);
+        colors.add(Color.RED);
+        colors.add(Color.GRAY);
+        colors.add(Color.GREEN);
+        colors.add(Color.MAGENTA);
+        colors.add(Color.CYAN);
+        colors.add(Color.YELLOW);
+        colors.add(Color.GREEN);
+        colors.add(Color.MAGENTA);
+        colors.add(Color.RED);
+
+        pieDataSet.setColors(colors);
+
+        Legend legend = pieChart.getLegend();
+        legend.setForm(Legend.LegendForm.CIRCLE);
+        legend.setDirection(Legend.LegendDirection.LEFT_TO_RIGHT);
+
+        PieData pieData = new PieData(pieDataSet);
+        pieChart.setData(pieData);
+        pieChart.invalidate();
     }
 }
