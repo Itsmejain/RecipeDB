@@ -86,7 +86,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/nexted_scrollview"
-            android:layout_marginTop="-35dp"
+            android:layout_marginTop="-40dp"
             android:clipToPadding="false"
             android:scrollbars="none"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
@@ -126,10 +126,11 @@
 
                         <TextView
                             android:layout_width="match_parent"
-                            android:layout_height="?attr/actionBarSize"
-                            android:gravity="center_vertical"
-
-                            android:text="POINT1 "
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_gravity="center"
+                            android:foregroundGravity="center"
+                            android:text="RecipeDB is a compilation of recipes,ingredients and nutrition profiles"
                             android:textAppearance="@style/TextAppearance.AppCompat.Title"
                             android:textColor="@color/black" />
 
@@ -166,9 +167,8 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="?attr/actionBarSize"
-                            android:gravity="center_vertical"
-                            android:text="POINT2"
-                            android:drawableEnd="@drawable/ic_baseline_arrow_right_24"
+                            android:gravity="center"
+                            android:text="Having over 1,18,000 recipes from cuisines across the globe"
                             android:textAppearance="@style/TextAppearance.AppCompat.Title"
                             android:textColor="@color/black"/>
 
@@ -205,9 +205,46 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="?attr/actionBarSize"
-                            android:gravity="center_vertical"
-                            android:text="POINT3"
-                            android:drawableEnd="@drawable/ic_baseline_arrow_right_24"
+                            android:gravity="center"
+                            android:text="6 continents, 26 geo-cultural regions and 74 countries"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                            android:textColor="@color/black"/>
+
+                        <!--                        <TextView-->
+                        <!--                            android:layout_width="match_parent"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:gravity="center_vertical"-->
+                        <!--                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"-->
+                        <!--                            android:text="@string/dummy_text"/>-->
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"/>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:background="@color/white"
+                    app:cardCornerRadius="2dp"
+                    android:elevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingBottom="15dp"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="cooked using 268 processes (heat, cook, boil, simmer, bake, etc.), by blending over 23,500 ingredients"
                             android:textAppearance="@style/TextAppearance.AppCompat.Title"
                             android:textColor="@color/black"/>
 
@@ -244,9 +281,8 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="?attr/actionBarSize"
-                            android:gravity="center_vertical"
-                            android:text="POINT4"
-                            android:drawableEnd="@drawable/ic_baseline_arrow_right_24"
+                            android:gravity="center"
+                            android:text="Aimed at facilitating scientific explorations of the culinary space"
 
                             android:textAppearance="@style/TextAppearance.AppCompat.Title"
                             android:textColor="@color/black"/>
@@ -261,127 +297,127 @@
 
 
                 </androidx.cardview.widget.CardView>
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="15dp"/>
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginLeft="15dp"
-                    android:background="@color/white"
-                    app:cardCornerRadius="2dp"
-                    android:elevation="2dp">
+<!--                <View-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="15dp"/>-->
+<!--                <androidx.cardview.widget.CardView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginRight="15dp"-->
+<!--                    android:layout_marginLeft="15dp"-->
+<!--                    android:background="@color/white"-->
+<!--                    app:cardCornerRadius="2dp"-->
+<!--                    android:elevation="2dp">-->
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:paddingBottom="15dp"
-                        android:paddingLeft="15dp"
-                        android:paddingRight="15dp">
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:orientation="vertical"-->
+<!--                        android:paddingBottom="15dp"-->
+<!--                        android:paddingLeft="15dp"-->
+<!--                        android:paddingRight="15dp">-->
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="?attr/actionBarSize"
-                            android:gravity="center_vertical"
-                            android:text="POINT2"
-                            android:drawableEnd="@drawable/ic_baseline_arrow_right_24"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                            android:textColor="@color/black"/>
+<!--                        <TextView-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="?attr/actionBarSize"-->
+<!--                            android:gravity="center_vertical"-->
+<!--                            android:text="POINT2"-->
+<!--                            android:drawableEnd="@drawable/ic_baseline_arrow_right_24"-->
+<!--                            android:textAppearance="@style/TextAppearance.AppCompat.Title"-->
+<!--                            android:textColor="@color/black"/>-->
 
-                        <!--                        <TextView-->
-                        <!--                            android:layout_width="match_parent"-->
-                        <!--                            android:layout_height="wrap_content"-->
-                        <!--                            android:gravity="center_vertical"-->
-                        <!--                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"-->
-                        <!--                            android:text="@string/dummy_text"/>-->
-                    </LinearLayout>
-
-
-                </androidx.cardview.widget.CardView>
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="15dp"/>
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginLeft="15dp"
-                    android:background="@color/white"
-                    app:cardCornerRadius="2dp"
-                    android:elevation="2dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:paddingBottom="15dp"
-                        android:paddingLeft="15dp"
-                        android:paddingRight="15dp">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="?attr/actionBarSize"
-                            android:gravity="center_vertical"
-                            android:text="POINT3"
-                            android:drawableEnd="@drawable/ic_baseline_arrow_right_24"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                            android:textColor="@color/black"/>
-
-                        <!--                        <TextView-->
-                        <!--                            android:layout_width="match_parent"-->
-                        <!--                            android:layout_height="wrap_content"-->
-                        <!--                            android:gravity="center_vertical"-->
-                        <!--                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"-->
-                        <!--                            android:text="@string/dummy_text"/>-->
-                    </LinearLayout>
+<!--                        &lt;!&ndash;                        <TextView&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:layout_width="match_parent"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:gravity="center_vertical"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:text="@string/dummy_text"/>&ndash;&gt;-->
+<!--                    </LinearLayout>-->
 
 
-                </androidx.cardview.widget.CardView>
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="15dp"/>
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginLeft="15dp"
-                    android:background="@color/white"
-                    app:cardCornerRadius="2dp"
-                    android:elevation="2dp">
+<!--                </androidx.cardview.widget.CardView>-->
+<!--                <View-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="15dp"/>-->
+<!--                <androidx.cardview.widget.CardView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginRight="15dp"-->
+<!--                    android:layout_marginLeft="15dp"-->
+<!--                    android:background="@color/white"-->
+<!--                    app:cardCornerRadius="2dp"-->
+<!--                    android:elevation="2dp">-->
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:paddingBottom="15dp"
-                        android:paddingLeft="15dp"
-                        android:paddingRight="15dp">
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:orientation="vertical"-->
+<!--                        android:paddingBottom="15dp"-->
+<!--                        android:paddingLeft="15dp"-->
+<!--                        android:paddingRight="15dp">-->
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="?attr/actionBarSize"
-                            android:gravity="center_vertical"
-                            android:text="POINT4"
-                            android:drawableEnd="@drawable/ic_baseline_arrow_right_24"
+<!--                        <TextView-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="?attr/actionBarSize"-->
+<!--                            android:gravity="center_vertical"-->
+<!--                            android:text="POINT3"-->
+<!--                            android:drawableEnd="@drawable/ic_baseline_arrow_right_24"-->
+<!--                            android:textAppearance="@style/TextAppearance.AppCompat.Title"-->
+<!--                            android:textColor="@color/black"/>-->
 
-                            android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                            android:textColor="@color/black"/>
-
-                        <!--                        <TextView-->
-                        <!--                            android:layout_width="match_parent"-->
-                        <!--                            android:layout_height="wrap_content"-->
-                        <!--                            android:gravity="center_vertical"-->
-                        <!--                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"-->
-                        <!--                            android:text="@string/dummy_text"/>-->
-                    </LinearLayout>
+<!--                        &lt;!&ndash;                        <TextView&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:layout_width="match_parent"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:gravity="center_vertical"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:text="@string/dummy_text"/>&ndash;&gt;-->
+<!--                    </LinearLayout>-->
 
 
-                </androidx.cardview.widget.CardView>
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="15dp"/>
+<!--                </androidx.cardview.widget.CardView>-->
+<!--                <View-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="15dp"/>-->
+<!--                <androidx.cardview.widget.CardView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginRight="15dp"-->
+<!--                    android:layout_marginLeft="15dp"-->
+<!--                    android:background="@color/white"-->
+<!--                    app:cardCornerRadius="2dp"-->
+<!--                    android:elevation="2dp">-->
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:orientation="vertical"-->
+<!--                        android:paddingBottom="15dp"-->
+<!--                        android:paddingLeft="15dp"-->
+<!--                        android:paddingRight="15dp">-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="?attr/actionBarSize"-->
+<!--                            android:gravity="center_vertical"-->
+<!--                            android:text="POINT4"-->
+<!--                            android:drawableEnd="@drawable/ic_baseline_arrow_right_24"-->
+
+<!--                            android:textAppearance="@style/TextAppearance.AppCompat.Title"-->
+<!--                            android:textColor="@color/black"/>-->
+
+<!--                        &lt;!&ndash;                        <TextView&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:layout_width="match_parent"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:gravity="center_vertical"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:text="@string/dummy_text"/>&ndash;&gt;-->
+<!--                    </LinearLayout>-->
+
+
+<!--                </androidx.cardview.widget.CardView>-->
+<!--                <View-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="15dp"/>-->
             </LinearLayout>
 
         </androidx.core.widget.NestedScrollView>

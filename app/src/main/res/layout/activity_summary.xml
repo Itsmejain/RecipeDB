@@ -68,7 +68,8 @@
                         android:background="@drawable/round_border"
                         android:gravity="center"
                         android:padding="15dp"
-                        android:text="point1" />
+                        android:text="RecipeDB is a structured compilation of
+	recipes,ingredients and	nutrition profiles " />
 
                 </com.google.android.material.card.MaterialCardView>
 
