@@ -49,10 +49,11 @@
         android:layout_marginStart="25dp"
         android:layout_marginTop="250dp"
         android:layout_marginEnd="25dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:hint="Ingredient Category Used">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <AutoCompleteTextView
+            android:completionThreshold="2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/usedCategoryEditBox"/>
@@ -65,10 +66,11 @@
         android:layout_marginStart="25dp"
         android:layout_marginTop="340dp"
         android:layout_marginEnd="25dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:hint="Ingredient Category Not Used">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <AutoCompleteTextView
+            android:completionThreshold="2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/notUsedCategoryEditBox"/>

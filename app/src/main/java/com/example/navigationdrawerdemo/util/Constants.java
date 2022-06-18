@@ -133,4 +133,12 @@ public class Constants {
     public static String[] UTENSIL_NAMES = {"Bowl","Sieve","Platter","Microwave","Board","Whisk","Cooker","Spoon",
                                             "Spatula","Container","Mixer","Other","Tablespoon","Plate","Knife","Fork",
                                             "Processor","Sheet","Dish","Cup","Saucepan","Pot","Skillet","Oven","Pan"};
+
+    public static String[] INGREDIENT_CATEGORIES = {"Additive",
+    "Additive-Salt", "Additive-Sugar", "Additive-Vinegar", "Additive-Yeast", "Bakery", "Beverage",
+    "Beverage-Alcoholic", "Beverage-Caffeinated", "Cereal", "Condiment", "Condiment-Sauce",
+    "Dairy", "Dish", "Essential Oil", "Fish", "Flower", "Fruit", "Fungi", "Herb", "Legume", "Maize", "Meat",
+            "Nuts and Seeds", "Plant", "Plant Derivative", "Seafood", "Spice", "Vegetable"};
+
+    public static String[] CONTINENTS = {"African","Asian","Australasian","Latin American","European","North American"};
 }
