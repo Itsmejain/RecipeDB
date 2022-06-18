@@ -51,10 +51,11 @@
         android:layout_marginStart="25dp"
         android:layout_marginTop="250dp"
         android:layout_marginEnd="25dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:hint="Continent">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <AutoCompleteTextView
+            android:completionThreshold="2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/advcontinentEditBox"/>
@@ -67,10 +68,11 @@
         android:layout_marginStart="25dp"
         android:layout_marginTop="340dp"
         android:layout_marginEnd="25dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:hint="Region">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <AutoCompleteTextView
+            android:completionThreshold="2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/advRegionEditBox"/>
@@ -84,10 +86,11 @@
         android:layout_marginStart="25dp"
         android:layout_marginTop="430dp"
         android:layout_marginEnd="25dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:hint="Country">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <AutoCompleteTextView
+            android:completionThreshold="2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/advCountryEditBox"/>
@@ -149,10 +152,11 @@
         android:layout_marginStart="25dp"
         android:layout_marginTop="790dp"
         android:layout_marginEnd="25dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:hint="Utensil">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <AutoCompleteTextView
+            android:completionThreshold="2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/utensilEditBox"/>
@@ -165,10 +169,11 @@
         android:layout_marginStart="25dp"
         android:layout_marginTop="880dp"
         android:layout_marginEnd="25dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:hint="Cooking Process (eg. Fry)">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <AutoCompleteTextView
+            android:completionThreshold="2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/cookingEditBox"/>
