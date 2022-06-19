@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".model.IngredientSearchFragment">
+    tools:context=".fragments.IngredientSearchFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <ScrollView
@@ -49,13 +49,14 @@
         android:layout_marginStart="25dp"
         android:layout_marginTop="250dp"
         android:layout_marginEnd="25dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:hint="Ingredient Used">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <AutoCompleteTextView
+            android:completionThreshold="2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/usedEditBox"/>
+            android:id="@+id/usedEditBox" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -65,12 +66,13 @@
         android:layout_marginStart="25dp"
         android:layout_marginTop="340dp"
         android:layout_marginEnd="25dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:hint="Ingredient Not Used">
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        <AutoCompleteTextView
+            android:completionThreshold="2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
         android:id="@+id/notUsedEditBox"/>
     </com.google.android.material.textfield.TextInputLayout>
 
